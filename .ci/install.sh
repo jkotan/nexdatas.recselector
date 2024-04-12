@@ -47,12 +47,36 @@ docker exec --user root ndts service tango-starter restart
 docker exec  --user root ndts chown -R tango:tango .
 
 
-echo "install python3-pytango and nxs packages"
+if [ "$2" = "2" ]; then
+    echo "install pytango and nxsconfigserver-db"
+    docker exec  --user root ndts /bin/bash -c 'apt-get -qq update; apt-get install -y   python-pytango  nxsconfigserver-db ; sleep 10'
+else
+    if [ "$1" = "debian10" ] || [ "$1" = "ubuntu24.04" ] || [ "$1" = "ubuntu22.04" ] || [ "$1" = "ubuntu20.04" ] || [ "$1" = "ubuntu20.10" ] || [ "$1" = "debian11" ] || [ "$1" = "debian12" ] ; then
+	echo "install pytango"
+	docker exec --user root ndts /bin/bash -c 'apt-get -qq update; apt-get install -y   python3-tango'
+	echo "install nxsconfigserver-db"
+	docker exec --user root ndts /bin/bash -c 'apt-get -qq update; apt-get  install -y   nxsconfigserver-db'
+	if [ "$1" = "ubuntu24.04" ]; then
+	    docker exec  --user root ndts /usr/bin/mysql -e 'GRANT ALL PRIVILEGES ON nxsconfig.* TO "tango"@"%" identified by "rootpw"'
+	    docker exec  --user root ndts /usr/bin/mysql -e 'GRANT ALL PRIVILEGES ON nxsconfig.* TO "tango"@"localhost" identified by "rootpw"'
+	    docker exec  --user root ndts /usr/bin/mysql -e 'FLUSH PRIVILEGES'
+	    docker exec  --user tango ndts /usr/bin/mysql -e 'create database nxsconfig'
+	    docker exec  --user tango ndts /bin/bash -c '/usr/bin/mysql nxsconfig < /usr/share/dbconfig-common/data/nxsconfigserver-db/install/mysql'
+	fi
+    else
+	echo "install pytango and nxsconfigserver-db"
+	docker exec  --user root ndts /bin/bash -c 'apt-get -qq update; apt-get -qq install -y   python3-pytango nxsconfigserver-db; sleep 10'
+    fi
+fi
+if [ "$?" != "0" ]; then exit 255; fi
+
+
+echo "install nxs packages"
 if [ "$2" = "2" ]; then
     echo "install python-pytango"
-    docker exec --user root ndts /bin/bash -c 'apt-get -qq update; apt-get install -y python-pytango nxsconfigserver-db python-nxsconfigserver python-nxswriter python-nxstools; sleep 10'
+    docker exec --user root ndts /bin/bash -c 'apt-get -qq update; apt-get install -y python-nxsconfigserver python-nxswriter python-nxstools; sleep 10'
 else
-    docker exec --user root ndts /bin/bash -c 'apt-get -qq update; apt-get install -y python3-tango nxsconfigserver-db python3-nxsconfigserver python3-nxswriter python3-nxstools; sleep 10'
+    docker exec --user root ndts /bin/bash -c 'apt-get -qq update; apt-get install -y python3-nxsconfigserver python3-nxswriter python3-nxstools; sleep 10'
 fi
 if [ "$?" != "0" ]; then exit 255; fi
 
