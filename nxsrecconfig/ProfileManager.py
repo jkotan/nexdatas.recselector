@@ -507,7 +507,8 @@ class ProfileManager(object):
                         if cp in jpcps.keys() and jpcps[cp] is False:
                             jpcps[cp] = None
                         for ds in fdss:
-                            snpds[ds] = True
+                            if ds not in poolds:
+                                snpds[ds] = True
         for ds, val in snpds.items():
             if val is not True:
                 jpdss[ds] = None
