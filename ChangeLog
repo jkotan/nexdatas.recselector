@@ -1,4 +1,8 @@
 2024-01-25 Jan Kotanski <jankotan@gmail.com>
+	* dynamic components for all motors when WritePoolMotorPositions (#123)
+	* tagged as v3.40.0
+
+2024-01-25 Jan Kotanski <jankotan@gmail.com>
 	* change default user_data type to NXparameters (#123)
 	* tagged as v3.39.0
 
