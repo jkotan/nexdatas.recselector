@@ -1,5 +1,5 @@
 2024-01-25 Jan Kotanski <jankotan@gmail.com>
-	* dynamic components for all motors when WritePoolMotorPositions (#123)
+	* dynamic components for all motors when WritePoolMotorPositions (#128)
 	* tagged as v3.40.0
 
 2024-01-25 Jan Kotanski <jankotan@gmail.com>
