@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxsrecconfig.ProfileManager &#8212; NXSRecSelector 3.39.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <title>nxsrecconfig.ProfileManager &#8212; NXSRecSelector 3.40.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
@@ -35,7 +37,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           NXSRecSelector</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.39</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.40</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -165,11 +167,11 @@
 
 <div class="viewcode-block" id="ProfileManager"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager">[docs]</a><span class="k">class</span> <span class="nc">ProfileManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot;  Manages Measurement Group and Profile from Selector&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;  Manages Measurement Group and Profile from Selector&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">selector</span><span class="p">,</span> <span class="n">syncsnapshot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">writepoolmotorpositions</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; constructor</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; constructor</span>
 
 <span class="sd">        :param selector: selector object</span>
 <span class="sd">        :type selector: :class:`nxsrecconfig.Selector.Selector`</span>
@@ -217,24 +219,24 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__writepoolmotorpositions</span> <span class="o">=</span> <span class="n">writepoolmotorpositions</span>
 
     <span class="k">def</span> <span class="nf">__updateMacroServer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; updatas MacroServer name</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; updatas MacroServer name</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__macroServerName</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">getMacroServer</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__withsynch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__hassynch</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__updateConfigServer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; update configuration server device proxy</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; update configuration server device proxy</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__configServer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">setConfigInstance</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__updatePools</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; update device pool proxy list</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; update device pool proxy list</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__pools</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">getPools</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__withsynch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__hassynch</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__hassynch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; check if pool devices has TriggerGateList</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; check if pool devices has TriggerGateList</span>
 
 <span class="sd">        :returns: if pool devices has TriggerGateList</span>
 <span class="sd">        :rtype: :obj:`bool`</span>
@@ -244,7 +246,7 @@
         <span class="k">return</span> <span class="kc">True</span>
 
 <div class="viewcode-block" id="ProfileManager.availableMntGrps"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.availableMntGrps">[docs]</a>    <span class="k">def</span> <span class="nf">availableMntGrps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; available mntgrps</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; available mntgrps</span>
 
 <span class="sd">        :returns: list of available measurement groups</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -268,7 +270,7 @@
         <span class="k">return</span> <span class="n">mntgrps</span></div>
 
 <div class="viewcode-block" id="ProfileManager.getPoolMotors"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.getPoolMotors">[docs]</a>    <span class="k">def</span> <span class="nf">getPoolMotors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; available mntgrps</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; available mntgrps</span>
 
 <span class="sd">        :returns: list of available measurement groups</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -284,7 +286,7 @@
         <span class="k">return</span> <span class="n">motors</span></div>
 
 <div class="viewcode-block" id="ProfileManager.components"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.components">[docs]</a>    <span class="k">def</span> <span class="nf">components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides selected components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides selected components</span>
 
 <span class="sd">        :returns: list of available selected components</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -302,7 +304,7 @@
         <span class="k">return</span> <span class="n">res</span></div>
 
 <div class="viewcode-block" id="ProfileManager.preselectedComponents"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.preselectedComponents">[docs]</a>    <span class="k">def</span> <span class="nf">preselectedComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides preselected components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides preselected components</span>
 
 <span class="sd">        :returns: list of available preselected components</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -314,7 +316,7 @@
             <span class="k">return</span> <span class="p">[]</span></div>
 
 <div class="viewcode-block" id="ProfileManager.preselectedDataSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.preselectedDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">preselectedDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides preselected datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides preselected datasources</span>
 
 <span class="sd">        :returns: list of available preselected components</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -326,7 +328,7 @@
             <span class="k">return</span> <span class="p">[]</span></div>
 
 <div class="viewcode-block" id="ProfileManager.cpdescription"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.cpdescription">[docs]</a>    <span class="k">def</span> <span class="nf">cpdescription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides description of components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides description of components</span>
 
 <span class="sd">        :param full: if True describes all available ones are taken</span>
 <span class="sd">                     otherwise selectect, preselected and mandatory</span>
@@ -354,7 +356,7 @@
         <span class="k">return</span> <span class="n">res</span></div>
 
 <div class="viewcode-block" id="ProfileManager.componentDataSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.componentDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">componentDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides a list of Component DataSources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides a list of Component DataSources</span>
 
 <span class="sd">        :returns: list of component datasources</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -362,7 +364,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__componentDataSources</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cpdescription</span><span class="p">())</span></div>
 
     <span class="k">def</span> <span class="nf">__componentDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides a list of Component DataSources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides a list of Component DataSources</span>
 
 <span class="sd">        :param description: component description</span>
 <span class="sd">        :type description: :obj:`bool`</span>
@@ -384,7 +386,7 @@
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">dds</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__dataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">compdatasources</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides selected datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides selected datasources</span>
 
 <span class="sd">        :param componentdatasources: component datasources</span>
 <span class="sd">        :type componentdatasources: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -403,7 +405,7 @@
             <span class="k">return</span> <span class="p">[]</span>
 
 <div class="viewcode-block" id="ProfileManager.dataSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.dataSources">[docs]</a>    <span class="k">def</span> <span class="nf">dataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides selected datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides selected datasources</span>
 
 <span class="sd">        :returns: list of available selected datasources</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -411,7 +413,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataSources</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="ProfileManager.deleteProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.deleteProfile">[docs]</a>    <span class="k">def</span> <span class="nf">deleteProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; deletes mntgrp</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; deletes mntgrp</span>
 
 <span class="sd">        :param name: mntgrp name</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -429,7 +431,7 @@
             <span class="n">inst</span><span class="o">.</span><span class="n">deleteSelection</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ProfileManager.updateProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.updateProfile">[docs]</a>    <span class="k">def</span> <span class="nf">updateProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sync</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">resetDoor</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets active measurement group from components and</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets active measurement group from components and</span>
 <span class="sd">        import setting from active measurement</span>
 
 
@@ -487,7 +489,7 @@
         <span class="k">return</span> <span class="n">conf</span></div>
 
 <div class="viewcode-block" id="ProfileManager.switchProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.switchProfile">[docs]</a>    <span class="k">def</span> <span class="nf">switchProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toActive</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; switchProfile to active measurement</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; switchProfile to active measurement</span>
 
 <span class="sd">        :param toActive: if False update the current profile</span>
 <span class="sd">        :type toActive: :obj:`bool`</span>
@@ -504,7 +506,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">storeSelection</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="ProfileManager.mntGrpConfiguration"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.mntGrpConfiguration">[docs]</a>    <span class="k">def</span> <span class="nf">mntGrpConfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides configuration of mntgrp</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides configuration of mntgrp</span>
 
 <span class="sd">        :returns: string with mntgrp configuration</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -520,7 +522,7 @@
         <span class="k">return</span> <span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">dpmg</span><span class="o">.</span><span class="n">Configuration</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ProfileManager.isMntGrpUpdated"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.isMntGrpUpdated">[docs]</a>    <span class="k">def</span> <span class="nf">isMntGrpUpdated</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; check if active measurement group was changed</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; check if active measurement group was changed</span>
 
 <span class="sd">        :returns: True if it is different to the current setting</span>
 <span class="sd">        :rtype: :obj:`bool`</span>
@@ -562,7 +564,7 @@
         <span class="k">return</span> <span class="n">Utils</span><span class="o">.</span><span class="n">compareDict</span><span class="p">(</span><span class="n">mgconf</span><span class="p">,</span> <span class="n">lsconf</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ProfileManager.importMntGrp"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.importMntGrp">[docs]</a>    <span class="k">def</span> <span class="nf">importMntGrp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; import setting from active measurement</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; import setting from active measurement</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__updateMacroServer</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__updateConfigServer</span><span class="p">()</span>
@@ -571,7 +573,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">storeSelection</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">__addPreselectedComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; add preselected components to set of given components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; add preselected components to set of given components</span>
 
 <span class="sd">        :param components: new selection preselected components</span>
 <span class="sd">        :type components: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -623,7 +625,8 @@
                         <span class="k">if</span> <span class="n">cp</span> <span class="ow">in</span> <span class="n">jpcps</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">jpcps</span><span class="p">[</span><span class="n">cp</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
                             <span class="n">jpcps</span><span class="p">[</span><span class="n">cp</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
                         <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="n">fdss</span><span class="p">:</span>
-                            <span class="n">snpds</span><span class="p">[</span><span class="n">ds</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                            <span class="k">if</span> <span class="n">ds</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">poolds</span><span class="p">:</span>
+                                <span class="n">snpds</span><span class="p">[</span><span class="n">ds</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">for</span> <span class="n">ds</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">snpds</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">:</span>
                 <span class="n">jpdss</span><span class="p">[</span><span class="n">ds</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
@@ -638,7 +641,7 @@
         <span class="k">return</span> <span class="n">changed</span>
 
 <div class="viewcode-block" id="ProfileManager.fetchProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.fetchProfile">[docs]</a>    <span class="k">def</span> <span class="nf">fetchProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; fetches the profile configuration</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; fetches the profile configuration</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__updateConfigServer</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">fetchSelection</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
@@ -660,7 +663,7 @@
 
     <span class="k">def</span> <span class="nf">__createMntGrpConf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasources</span><span class="p">,</span>
                            <span class="n">componentdatasources</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets active measurement group from components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets active measurement group from components</span>
 
 <span class="sd">        :param components:  component list</span>
 <span class="sd">        :type components: :obj:`list` &lt;:obj:`int`&gt;</span>
@@ -733,7 +736,7 @@
         <span class="k">return</span> <span class="n">mginfo</span>
 
     <span class="k">def</span> <span class="nf">__setFromMntGrpConf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jconf</span><span class="p">,</span> <span class="n">compdatasources</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; import setting from active measurement</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; import setting from active measurement</span>
 
 <span class="sd">        :param jconf: json with mntgrp configuration</span>
 <span class="sd">        :type jconf: :obj:`str`</span>
@@ -805,7 +808,7 @@
         <span class="k">return</span> <span class="n">changed</span>
 
     <span class="k">def</span> <span class="nf">__clearChannels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dsg</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">compdatasources</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; clears profile channels</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; clears profile channels</span>
 
 <span class="sd">        :param dsg: datasource selection dictionary</span>
 <span class="sd">        :type dsg: :obj:`dict` &lt;:obj:`str`, :obj:`bool` or `None`&gt;</span>
@@ -833,7 +836,7 @@
 
     <span class="k">def</span> <span class="nf">__readChannels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">timers</span><span class="p">,</span> <span class="n">dsg</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">synchronizer</span><span class="p">,</span>
                        <span class="n">synchronization</span><span class="p">,</span> <span class="n">idch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; reads channels from mntgrp configutation</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; reads channels from mntgrp configutation</span>
 
 <span class="sd">        :param conf: mntgrp configuration</span>
 <span class="sd">        :type jconf: :obj:`str`</span>
@@ -890,7 +893,7 @@
 
     <span class="k">def</span> <span class="nf">__readTangoChannels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">tangods</span><span class="p">,</span> <span class="n">dsg</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">synchronizer</span><span class="p">,</span>
                             <span class="n">synchronization</span><span class="p">,</span> <span class="n">idch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; reads Tango channels from mntgrp configutation</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; reads Tango channels from mntgrp configutation</span>
 
 <span class="sd">        :param conf: mntgrp configuration</span>
 <span class="sd">        :type conf: :obj:`dict` &lt;:obj:`str`, `any`&gt;</span>
@@ -940,7 +943,7 @@
                                         <span class="n">ctrl</span><span class="p">[</span><span class="s1">&#39;synchronization&#39;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__reorderTimers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">timers</span><span class="p">,</span> <span class="n">dsg</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">avtimers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; reads timer aliases and reoder it according to mntgrp</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; reads timer aliases and reoder it according to mntgrp</span>
 
 <span class="sd">        :param conf: mntgrp configuration</span>
 <span class="sd">        :type conf: :obj:`dict` &lt;:obj:`str`, `any`&gt;</span>
@@ -975,7 +978,7 @@
         <span class="k">return</span> <span class="n">otimers</span>
 
     <span class="k">def</span> <span class="nf">__reorderChannels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idch</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; reorder ordered channels</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; reorder ordered channels</span>
 
 <span class="sd">        :param idch: index channels</span>
 <span class="sd">        :type idch: :obj:`dict` &lt;:obj:`int`, :obj:`str`&gt;</span>
@@ -1006,7 +1009,7 @@
         <span class="k">return</span> <span class="n">pchannels</span>
 
     <span class="k">def</span> <span class="nf">__checkClientRecords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasources</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; checks client records</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; checks client records</span>
 
 <span class="sd">        :param datasources: datasource list</span>
 <span class="sd">        :type datasources: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1044,7 +1047,7 @@
                 <span class="o">%</span> <span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">missing</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">__getActivePool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mntgrp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get the active pool</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get the active pool</span>
 
 <span class="sd">        :param mntgrp: current mntgrp</span>
 <span class="sd">        :type mntgrp: :obj:`str`</span>
@@ -1070,7 +1073,7 @@
         <span class="k">return</span> <span class="n">fpool</span>
 
     <span class="k">def</span> <span class="nf">__createMntGrpDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mntGrpName</span><span class="p">,</span> <span class="n">timer</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; creates mntgrp devices</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; creates mntgrp devices</span>
 
 <span class="sd">        :param mntgrpName: measurement group name</span>
 <span class="sd">        :type mntgrpName: :obj:`str`</span>
@@ -1096,7 +1099,7 @@
         <span class="k">return</span> <span class="n">mfullname</span>
 
     <span class="k">def</span> <span class="nf">__prepareTimers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cnf</span><span class="p">,</span> <span class="n">ltimers</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; prepares timers</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; prepares timers</span>
 
 <span class="sd">        :param cnf: mntgrp configuration</span>
 <span class="sd">        :type cnf: :obj:`dict` &lt;:obj:`str`, `any`&gt;</span>
@@ -1131,7 +1134,7 @@
 
     <span class="k">def</span> <span class="nf">__fetchChannels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasources</span><span class="p">,</span> <span class="n">componentdatasources</span><span class="p">,</span>
                         <span class="n">dontdisplay</span><span class="p">,</span> <span class="n">timers</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; fetches component channels from config server</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; fetches component channels from config server</span>
 <span class="sd">            and preselect datasources</span>
 
 <span class="sd">        :param datasources: datasource list</span>
@@ -1215,7 +1218,7 @@
         <span class="k">return</span> <span class="n">pchannels</span><span class="p">,</span> <span class="n">snapshot</span>
 
     <span class="k">def</span> <span class="nf">__prepareMntGrp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cnf</span><span class="p">,</span> <span class="n">timer</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; creates mntgrp if does not exists</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; creates mntgrp if does not exists</span>
 
 <span class="sd">        :param cnf: mntgrp configuration</span>
 <span class="sd">        :type cnf: :obj:`dict` &lt;:obj:`str`, `any`&gt;</span>
@@ -1236,7 +1239,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__findSources</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">tangods</span><span class="p">,</span> <span class="n">extangods</span><span class="p">,</span> <span class="n">exsource</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; finds sources of tango datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; finds sources of tango datasources</span>
 
 <span class="sd">        :param tangods: tango datasources list</span>
 <span class="sd">                        with elements (name, label, source)</span>
@@ -1268,7 +1271,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__addKnownSources</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">extangods</span><span class="p">,</span> <span class="n">sds</span><span class="p">,</span> <span class="n">existing</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; adds known sources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; adds known sources</span>
 
 <span class="sd">        :param extangods: tango datasources list</span>
 <span class="sd">                        with elements</span>
@@ -1317,7 +1320,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__createXMLSource</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">exsource</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; creates datasource XML for sources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; creates datasource XML for sources</span>
 
 <span class="sd">        :param name: datasource name</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -1339,7 +1342,7 @@
         <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">prettyPrint</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__createUnknownSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extangods</span><span class="p">,</span> <span class="n">exsource</span><span class="p">,</span> <span class="n">ads</span><span class="p">,</span> <span class="n">jds</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; creates datasource XMLs for unknown datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; creates datasource XMLs for unknown datasources</span>
 
 <span class="sd">        :param extangods: tango datasources list</span>
 <span class="sd">                        with elements</span>
@@ -1374,7 +1377,7 @@
                     <span class="n">jds</span><span class="p">[</span><span class="n">initsource</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
 
 <div class="viewcode-block" id="ProfileManager.createDataSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.ProfileManager.ProfileManager.createDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">createDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tangods</span><span class="p">,</span> <span class="n">dsg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;adds known and creates unknown datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;adds known and creates unknown datasources</span>
 
 <span class="sd">        :param tangods: tango datasources list</span>
 <span class="sd">                        with elements (name, label, source)</span>
@@ -1401,7 +1404,7 @@
     <span class="k">def</span> <span class="nf">__addDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">dontdisplay</span><span class="p">,</span> <span class="n">cnf</span><span class="p">,</span>
                     <span class="n">timer</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">fullnames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sources</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                     <span class="n">synchronizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">synchronization</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; adds device into configuration dictionary</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; adds device into configuration dictionary</span>
 
 <span class="sd">        :param device: device alias</span>
 <span class="sd">        :type device: :obj:`str`</span>
@@ -1462,7 +1465,7 @@
         <span class="k">return</span> <span class="n">index</span>
 
     <span class="k">def</span> <span class="nf">__addController</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cnf</span><span class="p">,</span> <span class="n">ctrl</span><span class="p">,</span> <span class="n">fulltimer</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; adds controller into mntgrp configuration dictionary</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; adds controller into mntgrp configuration dictionary</span>
 
 <span class="sd">        :param cnf: mntgrp configuration dictionary</span>
 <span class="sd">        :type cnf: :obj:`dict` &lt;:obj:`str`, `any`&gt;</span>
@@ -1478,7 +1481,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__addController1</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cnf</span><span class="p">,</span> <span class="n">ctrl</span><span class="p">,</span> <span class="n">fulltimer</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; adds controller into mntgrp configuration dictionary</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; adds controller into mntgrp configuration dictionary</span>
 
 <span class="sd">        :param cnf: mntgrp configuration dictionary</span>
 <span class="sd">        :type cnf: :obj:`dict` &lt;:obj:`str`, `any`&gt;</span>
@@ -1505,7 +1508,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__addController2</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cnf</span><span class="p">,</span> <span class="n">ctrl</span><span class="p">,</span> <span class="n">fulltimer</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; adds controller into mntgrp configuration dictionary</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; adds controller into mntgrp configuration dictionary</span>
 
 <span class="sd">        :param cnf: mntgrp configuration dictionary</span>
 <span class="sd">        :type cnf: :obj:`dict` &lt;:obj:`str`, `any`&gt;</span>
@@ -1529,7 +1532,7 @@
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__addChannel</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cnf</span><span class="p">,</span> <span class="n">ctrl</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">fullname</span><span class="p">,</span> <span class="n">dontdisplay</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span>
                      <span class="n">source</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; adds channel into mngrp configuration dictionary</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; adds channel into mngrp configuration dictionary</span>
 
 <span class="sd">        :param cnf: mntgrp configuration dictionary</span>
 <span class="sd">        :type cnf: :obj:`dict` &lt;:obj:`str`, `any`&gt;</span>
@@ -1597,7 +1600,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__addTangoChannel</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cnf</span><span class="p">,</span> <span class="n">ctrl</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">record</span><span class="p">,</span> <span class="n">dontdisplay</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; adds tango channel into mntgrp configuration dictionary</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; adds tango channel into mntgrp configuration dictionary</span>
 
 <span class="sd">        :param cnf: mntgrp configuration dictionary</span>
 <span class="sd">        :type cnf: :obj:`dict` &lt;:obj:`str`, `any`&gt;</span>
@@ -1681,7 +1684,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
     </p>
   </div>
 </footer>
