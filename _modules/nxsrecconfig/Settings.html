@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxsrecconfig.Settings &#8212; NXSRecSelector 3.39.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <title>nxsrecconfig.Settings &#8212; NXSRecSelector 3.40.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
-<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
-<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
 
   </head><body>
@@ -35,7 +37,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           NXSRecSelector</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.39</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.40</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -164,7 +166,7 @@
 
 <div class="viewcode-block" id="Settings"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings">[docs]</a><span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="sd">&quot;&quot;&quot; NeXus Sardana Recorder settings</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; NeXus Sardana Recorder settings</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">numberofthreads</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -173,7 +175,7 @@
                  <span class="n">syncsnapshot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">writepoolmotorpositions</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">defaultnexustype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">defaultudatapath</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; contructor</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; contructor</span>
 
 <span class="sd">        :param server: NXSRecSelector server</span>
 <span class="sd">        :type server: :class:`nxsrecconfig.NXSConfig.NXSRecSelector`</span>
@@ -276,19 +278,19 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__setupSelection</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__setupSelection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets up the current selection from ActiveMntGrp</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets up the current selection from ActiveMntGrp</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__server</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fetchProfile</span><span class="p">()</span>
-        <span class="n">ms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">getMacroServer</span><span class="p">()</span>
-        <span class="n">amntgrp</span> <span class="o">=</span> <span class="n">MSUtils</span><span class="o">.</span><span class="n">getEnv</span><span class="p">(</span><span class="s1">&#39;ActiveMntGrp&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">amntgrp</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="p">[</span><span class="s2">&quot;MntGrp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">amntgrp</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">avsel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">availableProfiles</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">avsel</span> <span class="ow">and</span> <span class="n">avsel</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="p">[</span><span class="s2">&quot;MntGrp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">avsel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">try</span><span class="p">:</span>
+            <span class="n">ms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">getMacroServer</span><span class="p">()</span>
+            <span class="n">amntgrp</span> <span class="o">=</span> <span class="n">MSUtils</span><span class="o">.</span><span class="n">getEnv</span><span class="p">(</span><span class="s1">&#39;ActiveMntGrp&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">amntgrp</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="p">[</span><span class="s2">&quot;MntGrp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">amntgrp</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">avsel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">availableProfiles</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">avsel</span> <span class="ow">and</span> <span class="n">avsel</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="p">[</span><span class="s2">&quot;MntGrp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">avsel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fetchProfile</span><span class="p">()</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="kn">import</span> <span class="nn">sys</span>
@@ -301,7 +303,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_streams</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
 
 <div class="viewcode-block" id="Settings.value"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.value">[docs]</a>    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides values of the required variable</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides values of the required variable</span>
 
 <span class="sd">        :param name: name of the required variable</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -316,7 +318,7 @@
         <span class="k">return</span> <span class="n">vl</span></div>
 
 <div class="viewcode-block" id="Settings.names"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.names">[docs]</a>    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides names of variables</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides names of variables</span>
 
 <span class="sd">        :returns:  all names of variables</span>
 <span class="sd">        :rtypes: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -324,7 +326,7 @@
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
 
     <span class="k">def</span> <span class="nf">__version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides server version</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides server version</span>
 
 <span class="sd">        :returns: server version</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -339,7 +341,7 @@
 <span class="c1"># read-only variables</span>
 
 <div class="viewcode-block" id="Settings.administratorDataNames"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.administratorDataNames">[docs]</a>    <span class="k">def</span> <span class="nf">administratorDataNames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides administrator data names</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides administrator data names</span>
 
 <span class="sd">        :returns: list of provides administrator data names</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -347,7 +349,7 @@
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adminDataNames</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.selectedComponents"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.selectedComponents">[docs]</a>    <span class="k">def</span> <span class="nf">selectedComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides user selected components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides user selected components</span>
 
 <span class="sd">        :returns: list of available selected components</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -355,7 +357,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">components</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">__components</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides all configuration components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides all configuration components</span>
 
 <span class="sd">        :returns: list of available selected components</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -370,7 +372,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;provides selected components&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Settings.preselectedComponents"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.preselectedComponents">[docs]</a>    <span class="k">def</span> <span class="nf">preselectedComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides preselected components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides preselected components</span>
 
 <span class="sd">        :returns: list of available preselected components</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -378,7 +380,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">preselectedComponents</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">__getDescriptionErrors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides description component errors</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides description component errors</span>
 
 <span class="sd">        :returns: list of available description component errors</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -390,14 +392,14 @@
                                  <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;provides description component errors&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Settings.selectedDataSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.selectedDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">selectedDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides selected datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides selected datasources</span>
 
 <span class="sd">        :returns: list of available selected datasources</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">dataSources</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.preselectedDataSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.preselectedDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">preselectedDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides preselected datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides preselected datasources</span>
 
 <span class="sd">        :returns: list of available preselected datasources</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -405,7 +407,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">preselectedDataSources</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">__dataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides all selected data sources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides all selected data sources</span>
 
 <span class="sd">        :returns: all selected data sources</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -421,7 +423,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39; provides selected data sources&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Settings.componentDataSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.componentDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">componentDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides a list of profile component DataSources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides a list of profile component DataSources</span>
 
 <span class="sd">        :returns: list of profile component datasources</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -431,7 +433,7 @@
 <span class="c1"># read-write variables</span>
 
     <span class="k">def</span> <span class="nf">__getDefaultPreselectedComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for defaultPreselectedComponents attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for defaultPreselectedComponents attribute</span>
 
 <span class="sd">        :returns: list of components</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -439,7 +441,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">defaultPreselectedComponents</span>
 
     <span class="k">def</span> <span class="nf">__setDefaultPreselectedComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for defaultPreselectedComponents attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for defaultPreselectedComponents attribute</span>
 
 <span class="sd">        :param components: list of components</span>
 <span class="sd">        :type components: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -453,7 +455,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;default Preselected components&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getTangoSourceErrorStates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for tangoSourceErrorStates attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for tangoSourceErrorStates attribute</span>
 
 <span class="sd">        :returns: list of state</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -461,7 +463,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__msp</span><span class="o">.</span><span class="n">tangoSourceErrorStates</span>
 
     <span class="k">def</span> <span class="nf">__setTangoSourceErrorStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for tangoSourceErrorStates attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for tangoSourceErrorStates attribute</span>
 
 <span class="sd">        :param states: list of states</span>
 <span class="sd">        :type states: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -475,7 +477,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;tango sources error states&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getTangoSourceWarningStates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for tangoSourceWarningStates attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for tangoSourceWarningStates attribute</span>
 
 <span class="sd">        :returns: list of state</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -483,7 +485,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__msp</span><span class="o">.</span><span class="n">tangoSourceWarningStates</span>
 
     <span class="k">def</span> <span class="nf">__setTangoSourceWarningStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for tangoSourceWarningStates attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for tangoSourceWarningStates attribute</span>
 
 <span class="sd">        :param states: list of states</span>
 <span class="sd">        :type states: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -497,7 +499,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;tango sources warning states&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getClientRecordKeys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for clientRecordKeys attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for clientRecordKeys attribute</span>
 
 <span class="sd">        :returns: list of components</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -505,7 +507,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">clientRecordKeys</span>
 
     <span class="k">def</span> <span class="nf">__setClientRecordKeys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for clientRecordKeys attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for clientRecordKeys attribute</span>
 
 <span class="sd">        :param components: list of components</span>
 <span class="sd">        :type components: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -519,7 +521,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;clientRecordKeys&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getTimerFilters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for  timeFilters attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for  timeFilters attribute</span>
 
 <span class="sd">        :returns: list of timer filters</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -527,7 +529,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">timerFilters</span>
 
     <span class="k">def</span> <span class="nf">__setTimerFilters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filters</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for timeFilters attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for timeFilters attribute</span>
 
 <span class="sd">        :param filters: list of filters</span>
 <span class="sd">        :type filters: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -541,7 +543,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;timer filters&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getMutedPreScanAttrFilters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for  timeFilters attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for  timeFilters attribute</span>
 
 <span class="sd">        :returns: list of timer filters</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -549,7 +551,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">mutedPreScanAttrFilters</span>
 
     <span class="k">def</span> <span class="nf">__setMutedPreScanAttrFilters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filters</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for timeFilters attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for timeFilters attribute</span>
 
 <span class="sd">        :param filters: list of filters</span>
 <span class="sd">        :type filters: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -563,7 +565,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;muted prescan attribute filters&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getMasterTimerFirst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for masterTimerFirst attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for masterTimerFirst attribute</span>
 
 <span class="sd">        :returns: master channels with the 0 index</span>
 <span class="sd">        :rtype: :obj:`bool`</span>
@@ -571,7 +573,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">masterTimerFirst</span>
 
     <span class="k">def</span> <span class="nf">__setMasterTimerFirst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for masterTimerFirst attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for masterTimerFirst attribute</span>
 
 <span class="sd">        :param components: master channels with the 0 index</span>
 <span class="sd">        :type components: :obj:`bool`</span>
@@ -585,7 +587,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;master timer channels with the 0 index&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getMasterTimer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for masterTimer attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for masterTimer attribute</span>
 
 <span class="sd">        :returns: master channels with the 0 index</span>
 <span class="sd">        :rtype: :obj:`bool`</span>
@@ -593,7 +595,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">masterTimer</span>
 
     <span class="k">def</span> <span class="nf">__setMasterTimer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for masterTimer attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for masterTimer attribute</span>
 
 <span class="sd">        :param components: master channels with the 0 index</span>
 <span class="sd">        :type components: :obj:`bool`</span>
@@ -607,7 +609,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;set master timer/monitor for older MGs&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getConfigDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for configDevice attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for configDevice attribute</span>
 
 <span class="sd">        :returns: name of configDevice</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -615,7 +617,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="p">[</span><span class="s2">&quot;ConfigDevice&quot;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__setConfigDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for configDevice attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for configDevice attribute</span>
 
 <span class="sd">        :param name: name of configDevice</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -629,7 +631,7 @@
                             <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;configuration server device name&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getPoolBlacklist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for poolBlacklist attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for poolBlacklist attribute</span>
 
 <span class="sd">        :returns: name of poolBlacklist</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -637,7 +639,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__msp</span><span class="o">.</span><span class="n">poolBlacklist</span>
 
     <span class="k">def</span> <span class="nf">__setPoolBlacklist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for poolBlacklist attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for poolBlacklist attribute</span>
 
 <span class="sd">        :param names: names of poolBlacklist</span>
 <span class="sd">        :type names: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -649,7 +651,7 @@
                              <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;pool black list&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__setProfileConfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jconf</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for configuration attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for configuration attribute</span>
 
 <span class="sd">        :param name: name of configuration</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -658,7 +660,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">storeProfile</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__getProfileConfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for configuration attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for configuration attribute</span>
 
 <span class="sd">        :returns: configuration</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -672,7 +674,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;preselected components group&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__setAppendEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ae</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for appendEntry attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for appendEntry attribute</span>
 
 <span class="sd">        :param ae: appendEntry flag</span>
 <span class="sd">        :type ae: :obj:`bool`</span>
@@ -681,7 +683,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">storeProfile</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">__getAppendEntry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for appendEntry attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for appendEntry attribute</span>
 
 <span class="sd">        :returns: flag of appendEntry</span>
 <span class="sd">        :rtype: :obj:`bool`</span>
@@ -695,7 +697,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;flag for append entry&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getUserData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for userData attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for userData attribute</span>
 
 <span class="sd">        :returns: userData json dictionary</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -703,7 +705,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="p">[</span><span class="s2">&quot;UserData&quot;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__setUserData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">udata</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        set method for userData attribute</span>
 
 <span class="sd">        :param udata: userData json dictionary</span>
@@ -721,7 +723,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;client data record&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getDeviceGroups</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for deviceGroups attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for deviceGroups attribute</span>
 
 <span class="sd">        :returns: deviceGroups json dictionary</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -739,7 +741,7 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__defaultDeviceGroups</span>
 
     <span class="k">def</span> <span class="nf">__setDeviceGroups</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groups</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets method for deviceGroups attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets method for deviceGroups attribute</span>
 
 <span class="sd">        :param groups: name of deviceGroups</span>
 <span class="sd">        :type groups: :obj:`str`</span>
@@ -755,7 +757,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;device groups&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getConfigVariables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for configVariables attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for configVariables attribute</span>
 
 <span class="sd">        :returns: name of configVariables</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -763,7 +765,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="p">[</span><span class="s2">&quot;ConfigVariables&quot;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__setConfigVariables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for configVariables attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for configVariables attribute</span>
 
 <span class="sd">        :param name: name of configVariables</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -780,7 +782,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;configuration variables&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getStepDatSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for dataSourceGroup attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for dataSourceGroup attribute</span>
 
 <span class="sd">        :returns: names of STEP dataSources</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -792,7 +794,7 @@
             <span class="k">return</span> <span class="s2">&quot;[]&quot;</span>
 
     <span class="k">def</span> <span class="nf">__setStepDatSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for dataSourceGroup attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for dataSourceGroup attribute</span>
 <span class="sd">        :param names: names of STEP dataSources</span>
 <span class="sd">        :type names: :obj:`str`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -806,7 +808,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;step datasource list&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getLinkDatSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for dataSourceGroup attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for dataSourceGroup attribute</span>
 
 <span class="sd">        :returns: names of link dataSources</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -818,7 +820,7 @@
             <span class="k">return</span> <span class="s2">&quot;[]&quot;</span>
 
     <span class="k">def</span> <span class="nf">__setLinkDatSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for dataSourceGroup attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for dataSourceGroup attribute</span>
 <span class="sd">        :param names: names of link dataSources</span>
 <span class="sd">        :type names: :obj:`str`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -832,7 +834,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;link datasource list&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getCanFailDatSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for dataSourceGroup attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for dataSourceGroup attribute</span>
 
 <span class="sd">        :returns: names of canfail dataSources</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -844,7 +846,7 @@
             <span class="k">return</span> <span class="s2">&quot;[]&quot;</span>
 
     <span class="k">def</span> <span class="nf">__setCanFailDatSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for dataSourceGroup attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for dataSourceGroup attribute</span>
 <span class="sd">        :param names: names of canfail dataSources</span>
 <span class="sd">        :type names: :obj:`str`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -860,7 +862,7 @@
         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;canfail datasource list&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Settings.channelProperties"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.channelProperties">[docs]</a>    <span class="k">def</span> <span class="nf">channelProperties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ptype</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides channel properties of the given type</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides channel properties of the given type</span>
 
 <span class="sd">        :param ptype: property type</span>
 <span class="sd">        :type ptype: :obj:`str`</span>
@@ -874,7 +876,7 @@
             <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span></div>
 
 <div class="viewcode-block" id="Settings.setChannelProperties"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.setChannelProperties">[docs]</a>    <span class="k">def</span> <span class="nf">setChannelProperties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeandvariables</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets channel properties of the given type</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets channel properties of the given type</span>
 
 <span class="sd">        :param typeandvariables:</span>
 <span class="sd">               (property type, json dictionary of channel propertie values)</span>
@@ -893,7 +895,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">storeProfile</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">__getMntGrp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for mntGrp attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for mntGrp attribute</span>
 
 <span class="sd">        :returns: name of mntGrp</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -901,7 +903,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="p">[</span><span class="s2">&quot;MntGrp&quot;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__setMntGrp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for mntGrp attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for mntGrp attribute</span>
 
 <span class="sd">        :param name: name of mntGrp</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -913,7 +915,7 @@
                       <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;measurement group&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getDoor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for door attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for door attribute</span>
 
 <span class="sd">        :rtype: :obj:`str`</span>
 <span class="sd">        :returns: name of door</span>
@@ -921,7 +923,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="p">[</span><span class="s2">&quot;Door&quot;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__setDoor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for door attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for door attribute</span>
 
 <span class="sd">        :type name: :obj:`str`</span>
 <span class="sd">        :param name: name of door</span>
@@ -934,7 +936,7 @@
                     <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;door server device name&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getMacroServer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for macro server attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for macro server attribute</span>
 
 <span class="sd">        :returns: name of macro server</span>
 <span class="sd">        :rtype :obj:`str`</span>
@@ -946,7 +948,7 @@
                            <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;macroserver device name&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getWriterDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for writerDevice attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for writerDevice attribute</span>
 
 <span class="sd">        :returns: name of writerDevice</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -954,7 +956,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="p">[</span><span class="s2">&quot;WriterDevice&quot;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__setWriterDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for writerDevice attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for writerDevice attribute</span>
 
 <span class="sd">        :param name: name of writerDevice</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -967,7 +969,7 @@
                             <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Writer device name&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getScanDir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for ScanDir attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for ScanDir attribute</span>
 
 <span class="sd">        :returns: name of ScanDir</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -976,7 +978,7 @@
         <span class="k">return</span> <span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">MSUtils</span><span class="o">.</span><span class="n">getEnv</span><span class="p">(</span><span class="s1">&#39;ScanDir&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">__setScanDir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for ScanDir attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for ScanDir attribute</span>
 
 <span class="sd">        :param name: name of ScanDir</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -989,7 +991,7 @@
                        <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;scan directory&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getScanID</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for ScanID attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for ScanID attribute</span>
 
 <span class="sd">        :returns: name of ScanID</span>
 <span class="sd">        :rtype: :obj:`int`</span>
@@ -1006,7 +1008,7 @@
             <span class="c1"># print(str(e))</span>
 
     <span class="k">def</span> <span class="nf">__setScanID</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for ScanID attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for ScanID attribute</span>
 
 <span class="sd">        :param name: name of ScanID</span>
 <span class="sd">        :type name: :obj:`int`</span>
@@ -1019,7 +1021,7 @@
                       <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;scan id&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getScanFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; get method for ScanFile attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; get method for ScanFile attribute</span>
 
 <span class="sd">        :returns: name of ScanFile</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -1030,7 +1032,7 @@
         <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__setScanFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set method for ScanFile attribute</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set method for ScanFile attribute</span>
 
 <span class="sd">        :param name: name of ScanFile</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -1047,7 +1049,7 @@
                         <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;scan file(s)&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Settings.variableComponents"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.variableComponents">[docs]</a>    <span class="k">def</span> <span class="nf">variableComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides components for all variables</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides components for all variables</span>
 
 <span class="sd">        :returns: json dictionary with components for all variables</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -1066,7 +1068,7 @@
         <span class="k">return</span> <span class="n">jdc</span></div>
 
 <div class="viewcode-block" id="Settings.componentDescription"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.componentDescription">[docs]</a>    <span class="k">def</span> <span class="nf">componentDescription</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides description of all components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides description of all components</span>
 
 <span class="sd">        :returns: JSON string with description of all components</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -1076,7 +1078,7 @@
         <span class="k">return</span> <span class="n">jdc</span></div>
 
 <div class="viewcode-block" id="Settings.fullDeviceNames"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.fullDeviceNames">[docs]</a>    <span class="k">def</span> <span class="nf">fullDeviceNames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides full names of pool devices</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides full names of pool devices</span>
 
 <span class="sd">        :returns: JSON string with full names of pool devices</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -1085,7 +1087,7 @@
         <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">PoolUtils</span><span class="o">.</span><span class="n">getFullDeviceNames</span><span class="p">(</span><span class="n">pools</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Settings.availableTimers"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.availableTimers">[docs]</a>    <span class="k">def</span> <span class="nf">availableTimers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides available Timers from MacroServer pools</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides available Timers from MacroServer pools</span>
 
 <span class="sd">        :returns:  available Timers from MacroServer pools</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1094,7 +1096,7 @@
         <span class="k">return</span> <span class="n">PoolUtils</span><span class="o">.</span><span class="n">getTimers</span><span class="p">(</span><span class="n">pools</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timerFilters</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.mutedChannels"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.mutedChannels">[docs]</a>    <span class="k">def</span> <span class="nf">mutedChannels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides muted channels from pool</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides muted channels from pool</span>
 
 <span class="sd">        :returns: muted channels from pool</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1136,7 +1138,7 @@
 <span class="c1">#  commands</span>
 
     <span class="k">def</span> <span class="nf">__configCommand</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="o">*</span><span class="n">var</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; executes command on configuration server</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; executes command on configuration server</span>
 
 <span class="sd">        :param command: command name</span>
 <span class="sd">        :type command: :obj:`str`</span>
@@ -1148,7 +1150,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">configCommand</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="o">*</span><span class="n">var</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Settings.mandatoryComponents"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.mandatoryComponents">[docs]</a>    <span class="k">def</span> <span class="nf">mandatoryComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; mandatory components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; mandatory components</span>
 
 <span class="sd">        :returns: list of mandatory components</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1157,7 +1159,7 @@
         <span class="k">return</span> <span class="n">mc</span></div>
 
 <div class="viewcode-block" id="Settings.availableComponents"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.availableComponents">[docs]</a>    <span class="k">def</span> <span class="nf">availableComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; available components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; available components</span>
 
 <span class="sd">        :returns: list of available components</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1166,7 +1168,7 @@
         <span class="k">return</span> <span class="n">ac</span></div>
 
 <div class="viewcode-block" id="Settings.availableProfiles"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.availableProfiles">[docs]</a>    <span class="k">def</span> <span class="nf">availableProfiles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; available selections</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; available selections</span>
 
 <span class="sd">        :returns: list of available selections</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1175,7 +1177,7 @@
         <span class="k">return</span> <span class="n">ac</span></div>
 
 <div class="viewcode-block" id="Settings.availableDataSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.availableDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">availableDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; available datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; available datasources</span>
 
 <span class="sd">        :returns: list of available datasources</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1184,7 +1186,7 @@
         <span class="k">return</span> <span class="n">ad</span></div>
 
 <div class="viewcode-block" id="Settings.poolElementNames"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.poolElementNames">[docs]</a>    <span class="k">def</span> <span class="nf">poolElementNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">listattr</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides names from given pool listattr</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides names from given pool listattr</span>
 
 <span class="sd">        :param listattr: name of pool attribute with a element list</span>
 <span class="sd">        :type listattr: :obj:`str`</span>
@@ -1194,29 +1196,29 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">poolElementNames</span><span class="p">(</span><span class="n">listattr</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.saveProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.saveProfile">[docs]</a>    <span class="k">def</span> <span class="nf">saveProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; saves configuration</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; saves configuration</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">profileFile</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fl</span><span class="p">:</span>
             <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">fl</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.storeProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.storeProfile">[docs]</a>    <span class="k">def</span> <span class="nf">storeProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; saves configuration</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; saves configuration</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">storeSelection</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.fetchProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.fetchProfile">[docs]</a>    <span class="k">def</span> <span class="nf">fetchProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; fetch configuration</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; fetch configuration</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">fetchProfile</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.loadProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.loadProfile">[docs]</a>    <span class="k">def</span> <span class="nf">loadProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; loads configuration</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; loads configuration</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">profileFile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fl</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fl</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Settings.componentClientSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.componentClientSources">[docs]</a>    <span class="k">def</span> <span class="nf">componentClientSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cps</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides description of client datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides description of client datasources</span>
 
 <span class="sd">        :param cps: component names</span>
 <span class="sd">        :type cps: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1234,7 +1236,7 @@
         <span class="k">return</span> <span class="n">jdc</span></div>
 
 <div class="viewcode-block" id="Settings.componentSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.componentSources">[docs]</a>    <span class="k">def</span> <span class="nf">componentSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cps</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides description of datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides description of datasources</span>
 
 <span class="sd">        :param cps: component names</span>
 <span class="sd">        :type cps: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1252,7 +1254,7 @@
         <span class="k">return</span> <span class="n">jdc</span></div>
 
 <div class="viewcode-block" id="Settings.createWriterConfiguration"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.createWriterConfiguration">[docs]</a>    <span class="k">def</span> <span class="nf">createWriterConfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cps</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; create configuration and clean stepdatasources and linkdatasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; create configuration and clean stepdatasources and linkdatasources</span>
 
 <span class="sd">        :param cps: component names</span>
 <span class="sd">        :type cps: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1279,7 +1281,7 @@
         <span class="k">return</span> <span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">nexusconfig_device</span><span class="o">.</span><span class="n">xmlstring</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.updateConfigVariables"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.updateConfigVariables">[docs]</a>    <span class="k">def</span> <span class="nf">updateConfigVariables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;  sends ConfigVariables into ConfigServer</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;  sends ConfigVariables into ConfigServer</span>
 <span class="sd">        and updates serialno if appendEntry selected</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">confvars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">configVariables</span>
@@ -1307,13 +1309,13 @@
             <span class="nb">list</span><span class="p">(</span><span class="n">sprops</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaultCanFailDataSources</span><span class="p">)))</span></div>
 
 <div class="viewcode-block" id="Settings.preselectComponents"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.preselectComponents">[docs]</a>    <span class="k">def</span> <span class="nf">preselectComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; checks existing controllers of pools</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; checks existing controllers of pools</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">preselect</span><span class="p">()</span>
         <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.resetPreselectedComponents"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.resetPreselectedComponents">[docs]</a>    <span class="k">def</span> <span class="nf">resetPreselectedComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; reset preselected Components to defaultPreselectedComponents</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; reset preselected Components to defaultPreselectedComponents</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">resetPreselectedComponents</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">defaultPreselectedComponents</span><span class="p">)</span>
@@ -1322,7 +1324,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">storeProfile</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.deleteAllProfiles"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.deleteAllProfiles">[docs]</a>    <span class="k">def</span> <span class="nf">deleteAllProfiles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; clear all selections</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; clear all selections</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">avsel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">availableProfiles</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">avsel</span><span class="p">:</span>
@@ -1331,7 +1333,7 @@
                 <span class="n">inst</span><span class="o">.</span><span class="n">deleteSelection</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.dataSourceDescription"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.dataSourceDescription">[docs]</a>    <span class="k">def</span> <span class="nf">dataSourceDescription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasources</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; describe datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; describe datasources</span>
 
 <span class="sd">        :param datasources: list for datasource names</span>
 <span class="sd">        :type datasources: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1344,7 +1346,7 @@
         <span class="k">return</span> <span class="n">describer</span><span class="o">.</span><span class="n">dataSources</span><span class="p">(</span><span class="n">datasources</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.createDataSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.createDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">createDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasources</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; describe datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; describe datasources</span>
 
 <span class="sd">        :param datasources:  JSON dictionary with</span>
 <span class="sd">                             {``dsname``: ``tangosource``, ...}</span>
@@ -1356,7 +1358,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">createDataSources</span><span class="p">(</span><span class="n">tangods</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.addStepDataSources"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.addStepDataSources">[docs]</a>    <span class="k">def</span> <span class="nf">addStepDataSources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasources</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; describe datasources</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; describe datasources</span>
 
 <span class="sd">        :param datasources: list for datasource names</span>
 <span class="sd">        :type datasources: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1380,7 +1382,7 @@
 <span class="c1"># MntGrp methods</span>
 
 <div class="viewcode-block" id="Settings.deleteProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.deleteProfile">[docs]</a>    <span class="k">def</span> <span class="nf">deleteProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; deletes mntgrp</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; deletes mntgrp</span>
 
 <span class="sd">        :param name: mntgrp name</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -1388,7 +1390,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">deleteProfile</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.mntGrpConfiguration"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.mntGrpConfiguration">[docs]</a>    <span class="k">def</span> <span class="nf">mntGrpConfiguration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; provides configuration of mntgrp</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; provides configuration of mntgrp</span>
 
 <span class="sd">        :returns: string with mntgrp configuration</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -1396,7 +1398,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">mntGrpConfiguration</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.isMntGrpUpdated"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.isMntGrpUpdated">[docs]</a>    <span class="k">def</span> <span class="nf">isMntGrpUpdated</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; check if active measurement group was changed</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; check if active measurement group was changed</span>
 
 <span class="sd">        :returns: True if it is different to the current setting</span>
 <span class="sd">        :rtype: :obj:`bool`</span>
@@ -1404,7 +1406,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">isMntGrpUpdated</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.updateMntGrp"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.updateMntGrp">[docs]</a>    <span class="k">def</span> <span class="nf">updateMntGrp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; set active measurement group from components</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; set active measurement group from components</span>
 
 <span class="sd">        :returns: string with mntgrp configuration</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -1415,7 +1417,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">updateProfile</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">reset</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.switchProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.switchProfile">[docs]</a>    <span class="k">def</span> <span class="nf">switchProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toActive</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; switch to active measurement</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; switch to active measurement</span>
 
 <span class="sd">        :param toActive: if False update the current profile</span>
 <span class="sd">        :type toActive: :obj:`bool`</span>
@@ -1423,7 +1425,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">switchProfile</span><span class="p">(</span><span class="n">toActive</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.updateProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.updateProfile">[docs]</a>    <span class="k">def</span> <span class="nf">updateProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; update profile and measurement group</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; update profile and measurement group</span>
 
 <span class="sd">        :returns: string with mntgrp configuration</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -1435,12 +1437,12 @@
                 <span class="s2">&quot;Door is RUNNING. Cannot update the Measurement Group&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.importMntGrp"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.importMntGrp">[docs]</a>    <span class="k">def</span> <span class="nf">importMntGrp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; import setting from active measurement</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; import setting from active measurement</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__profileManager</span><span class="o">.</span><span class="n">importMntGrp</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.availableMntGrps"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.availableMntGrps">[docs]</a>    <span class="k">def</span> <span class="nf">availableMntGrps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; available mntgrps</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; available mntgrps</span>
 
 <span class="sd">        :returns: list of available measurement groups</span>
 <span class="sd">        :rtype: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1458,7 +1460,7 @@
 <span class="c1"># Dynamic component methods</span>
 
 <div class="viewcode-block" id="Settings.createDynamicComponent"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.createDynamicComponent">[docs]</a>    <span class="k">def</span> <span class="nf">createDynamicComponent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; creates dynamic component</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; creates dynamic component</span>
 
 <span class="sd">        :param params: datasource parameters</span>
 <span class="sd">        :type params: :obj:`list` &lt;:obj:`str`&gt;</span>
@@ -1503,7 +1505,7 @@
         <span class="k">return</span> <span class="n">dcpcreator</span><span class="o">.</span><span class="n">create</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.removeDynamicComponent"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.removeDynamicComponent">[docs]</a>    <span class="k">def</span> <span class="nf">removeDynamicComponent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; removes dynamic component</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; removes dynamic component</span>
 
 <span class="sd">        :param name: dynamic component name</span>
 <span class="sd">        :type name: :obj:`str`</span>
@@ -1515,7 +1517,7 @@
 <span class="c1"># Environment methods:</span>
 
 <div class="viewcode-block" id="Settings.scanEnvVariables"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.scanEnvVariables">[docs]</a>    <span class="k">def</span> <span class="nf">scanEnvVariables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; gets Scan Environment Data</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; gets Scan Environment Data</span>
 
 <span class="sd">        :returns: JSON String with important variables</span>
 <span class="sd">        :rtype: :obj:`str`</span>
@@ -1523,7 +1525,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">getScanEnvVariables</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.setScanEnvVariables"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.setScanEnvVariables">[docs]</a>    <span class="k">def</span> <span class="nf">setScanEnvVariables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jdata</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; sets Scan Environment Data</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; sets Scan Environment Data</span>
 
 <span class="sd">        :param jdata: JSON String with important variables</span>
 <span class="sd">        :type jdata: :obj:`str`</span>
@@ -1531,12 +1533,12 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">setScanEnvVariables</span><span class="p">(</span><span class="n">jdata</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Settings.importEnvProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.importEnvProfile">[docs]</a>    <span class="k">def</span> <span class="nf">importEnvProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; imports all Enviroutment Data</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; imports all Enviroutment Data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__selector</span><span class="o">.</span><span class="n">importEnv</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Settings.exportEnvProfile"><a class="viewcode-back" href="../../nxsrecconfig.html#nxsrecconfig.Settings.Settings.exportEnvProfile">[docs]</a>    <span class="k">def</span> <span class="nf">exportEnvProfile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; exports all Enviroutment Data</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; exports all Enviroutment Data</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">nenv</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">commands</span> <span class="o">=</span> <span class="p">{</span>
@@ -1563,7 +1565,7 @@
         &copy; Copyright 2012-2017 DESY, Jan Kotanski &lt;jkotan@mail.desy.de&gt;
 
 GNU GENERAL PUBLIC LICENSE, version 3.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br/>
     </p>
   </div>
 </footer>
