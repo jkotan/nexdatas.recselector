@@ -164,15 +164,15 @@ class Settings(object):
         """
         if not self.__server:
             self.fetchProfile()
-        ms = self.__selector.getMacroServer()
-        amntgrp = MSUtils.getEnv('ActiveMntGrp', ms)
-        if amntgrp:
-            self.__selector["MntGrp"] = amntgrp
-        else:
-            avsel = self.availableProfiles()
-            if avsel and avsel[0]:
-                self.__selector["MntGrp"] = avsel[0]
         try:
+            ms = self.__selector.getMacroServer()
+            amntgrp = MSUtils.getEnv('ActiveMntGrp', ms)
+            if amntgrp:
+                self.__selector["MntGrp"] = amntgrp
+            else:
+                avsel = self.availableProfiles()
+                if avsel and avsel[0]:
+                    self.__selector["MntGrp"] = avsel[0]
             self.fetchProfile()
         except Exception:
             import sys
