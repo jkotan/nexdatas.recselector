@@ -53,12 +53,12 @@ Extract the sources and run
 
 .. code-block:: console
 
-	  $ python setup.py install
+	  $ python3 setup.py install
 
 Debian packages
 ^^^^^^^^^^^^^^^
 
-Debian bookworm, bullseye and buster or ubuntu lunar, jammy nad focal packages can be found in the HDRI repository.
+Debian bookworm, bullseye and buster or ubuntu oracular, noble, jammy packages can be found in the HDRI repository.
 
 To install the debian packages, add the PGP repository key
 
@@ -79,7 +79,7 @@ Finally, install module
 .. code-block:: console
 
 	  $ apt-get update
-	  $ apt-get install python-nxsrecselector
+	  $ apt-get install python3-nxsrecselector
 
 and the NXSRecSelector tango server
 
@@ -92,13 +92,13 @@ To instal other NexDaTaS packages
 
 .. code-block:: console
 
-	  $ apt-get install python-nxswriter nxsconfigtool nxstools python-nxsconfigserver nxsconfigserver-db
+	  $ apt-get install python3-nxswriter nxsconfigtool nxstools python3-nxsconfigserver nxsconfigserver-db
 
 and
 
 .. code-block:: console
 
-	  $ apt-get install nxselector python-sardana-nxsrecorder
+	  $ apt-get install nxselector python3-sardana-nxsrecorder
 
 for Component Selector and Sardana related packages.
 
