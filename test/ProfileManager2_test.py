@@ -6501,6 +6501,8 @@ class ProfileManager2Test(unittest.TestCase):
                                 "data_type": types,
                                 "synchronizer": {},
                                 "synchronization": {},
+                                "value_ref_enabled": {},
+                                "value_ref_pattern": {},
                                 "shape": shapes
                             }
                         )
