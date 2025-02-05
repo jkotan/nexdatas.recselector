@@ -6982,6 +6982,10 @@ class ProfileManagerTest(unittest.TestCase):
                     ltmpcf = json.loads(lmgt.mntGrpConfiguration())
                     self.myAssertDict(tmpcf, ltmpcf)
 
+                    self.assertEqual(
+                        set(json.loads(lse["PreselectingDataSources"])),
+                        set(aadss[mg1]))
+
                     # adtimers =
                     set(
                         json.loads(lse["Timer"])) - set(ltimers[mg1])
@@ -7220,7 +7224,7 @@ class ProfileManagerTest(unittest.TestCase):
                          "ComponentSelection",
                          "DataSourceSelection",
                          "UnplottedComponents",
-                         # "ChannelProperties",
+                         "ChannelProperties",
                          "PreselectingDataSources",
                          "Timer"],
                         name=mg2)
