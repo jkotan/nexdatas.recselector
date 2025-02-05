@@ -1843,15 +1843,16 @@ class ProfileManagerTest(unittest.TestCase):
                 w1 = json.loads(self.__dump[name][key])
                 w2 = json.loads(el[key])
             except Exception:
-                # if self.__dump[name][key] != el[key]:
-                #     print key
+                if self.__dump[name][key] != el[key]:
+                    print(key)
                 self.assertEqual(self.__dump[name][key], el[key])
             else:
                 if isinstance(w1, dict):
                     self.myAssertDict(w1, w2)
                 else:
-                    # if self.__dump[name][key] != el[key]:
-                    #     print "COMP", key
+                    if self.__dump[name][key] != el[key]:
+                        if sys.version_info > (3,):
+                            print("COMP", key)
                     self.assertEqual(self.__dump[name][key], el[key])
 
     def getRandomName(self, maxsize):
@@ -1882,15 +1883,17 @@ class ProfileManagerTest(unittest.TestCase):
         logger.debug('dict %s' % type(dct))
         logger.debug("\n%s\n%s" % (dct, dct2))
         self.assertTrue(isinstance(dct, dict))
-        # if not isinstance(dct2, dict):
-        #     print "NOT DICT", type(dct2), dct2
-        #     print "DICT", type(dct), dct
+        if not isinstance(dct2, dict):
+            if sys.version_info > (3,):
+                print("NOT DICT", type(dct2), dct2)
+                print("DICT", type(dct), dct)
         self.assertTrue(isinstance(dct2, dict))
         logger.debug("%s %s" % (len(list(dct.keys())), len(list(dct2.keys()))))
-        # if set(dct.keys()) ^ set(dct2.keys()):
-        #     print 'DCT', dct.keys()
-        #     print 'DCT2', dct2.keys()
-        #     print "DIFF", set(dct.keys()) ^ set(dct2.keys())
+        if set(dct.keys()) ^ set(dct2.keys()):
+            if sys.version_info > (3,):
+                print('DCT', dct.keys())
+                print('DCT2', dct2.keys())
+                print("DIFF", set(dct.keys()) ^ set(dct2.keys()))
         self.assertEqual(len(list(dct.keys())), len(list(dct2.keys())))
         for k, v in dct.items():
             logger.debug("%s  in %s" % (str(k), str(dct2.keys())))
@@ -1899,8 +1902,9 @@ class ProfileManagerTest(unittest.TestCase):
                 self.myAssertDict(v, dct2[k])
             else:
                 logger.debug("%s , %s" % (str(v), str(dct2[k])))
-                # if v != dct2[k]:
-                #     print 'VALUES!! ', k, v, dct2[k]
+                if v != dct2[k]:
+                    if sys.version_info > (3,):
+                        print('VALUES!! ', k, v, dct2[k])
                 self.assertEqual(v, dct2[k])
 
     def myCompDict(self, dct, dct2):
@@ -6656,6 +6660,8 @@ class ProfileManagerTest(unittest.TestCase):
                                 "data_type": types,
                                 "synchronizer": {},
                                 "synchronization": {},
+                                "value_ref_enabled": {},
+                                "value_ref_pattern": {},
                                 "shape": shapes
                             }
                         )
@@ -6961,11 +6967,13 @@ class ProfileManagerTest(unittest.TestCase):
                     self.myAssertRaise(Exception, lmgt.isMntGrpUpdated)
 
                     lmgt.switchProfile(False)
+
                     self.compareToDumpJSON(
                         lse, [
                             "DataSourceSelection",
                             "UnplottedComponents",
                             "PreselectingDataSources",
+                            # "ChannelProperties",
                             "Timer"
                         ],
                         name=mg1)
@@ -7020,6 +7028,7 @@ class ProfileManagerTest(unittest.TestCase):
                         se[mg2],
                         ["DataSourceSelection",
                          "UnplottedComponents",
+                         # "ChannelProperties",
                          "OrderedChannels",     # IMPROVE
                          "PreselectingDataSources"],
                         name=mg2)
@@ -7036,6 +7045,7 @@ class ProfileManagerTest(unittest.TestCase):
                         ["DataSourceSelection",
                          "UnplottedComponents",
                          "OrderedChannels",  # IMPROVE
+                         # "ChannelProperties",
                          "PreselectingDataSources",
                          "Timer",
                          "MntGrp"],
@@ -7200,6 +7210,7 @@ class ProfileManagerTest(unittest.TestCase):
                          "DataSourceSelection",
                          "UnplottedComponents",
                          "OrderedChannels",     # IMPROVE
+                         # "ChannelProperties",
                          "PreselectingDataSources",
                          "Timer",
                          "MntGrp"],
@@ -7289,6 +7300,7 @@ class ProfileManagerTest(unittest.TestCase):
                         [
                             "DataSourceSelection",
                             "UnplottedComponents",
+                            # "ChannelProperties",
                             "PreselectingDataSources",
                             "Timer"],
                         name=mg3)
@@ -7338,6 +7350,7 @@ class ProfileManagerTest(unittest.TestCase):
                             "DataSourceSelection",
                             "UnplottedComponents",
                             "PreselectingDataSources",
+                            # "ChannelProperties",
                             "Timer",
                             "MntGrp"],
                         name=mg3)
@@ -7402,6 +7415,7 @@ class ProfileManagerTest(unittest.TestCase):
                         [
                             "DataSourceSelection",
                             "UnplottedComponents",
+                            # "ChannelProperties",
                             "PreselectingDataSources",
                             "Timer"],
                         name=mg3)
@@ -7452,6 +7466,7 @@ class ProfileManagerTest(unittest.TestCase):
                         lse,
                         [
                             "DataSourceSelection",
+                            # "ChannelProperties",
                             "UnplottedComponents",
                             "PreselectingDataSources",
                             "Timer"],
@@ -7500,6 +7515,7 @@ class ProfileManagerTest(unittest.TestCase):
                         [
                             "DataSourceSelection",
                             "UnplottedComponents",
+                            # "ChannelProperties",
                             "PreselectingDataSources",
                             "Timer"],
                         name=mg3)
@@ -7541,6 +7557,7 @@ class ProfileManagerTest(unittest.TestCase):
                         [
                             "DataSourceSelection",
                             "UnplottedComponents",
+                            # "ChannelProperties",
                             "PreselectingDataSources",
                             "Timer", "MntGrp"],
                         name=mg3)
@@ -7595,6 +7612,7 @@ class ProfileManagerTest(unittest.TestCase):
                             "Timer",
                             "MntGrp",
                             "OrderedChannels",
+                            # "ChannelProperties",
                             "ComponentSelection",
                             "DataSourceSelection",
                             "UnplottedComponents",

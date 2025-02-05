@@ -1408,6 +1408,8 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                 "nexus_path": paths,
                                 "link": links,
                                 "data_type": types,
+                                "value_ref_enabled": {},
+                                "value_ref_pattern": {},
                                 "synchronizer": {},
                                 "synchronization": {},
                                 "shape": shapes
@@ -2878,6 +2880,8 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                 "nexus_path": paths,
                                 "link": links,
                                 "data_type": types,
+                                "value_ref_enabled": {},
+                                "value_ref_pattern": {},
                                 "synchronizer": {},
                                 "synchronization": {},
                                 "shape": shapes

@@ -1408,6 +1408,8 @@ class ExtraSettingsTest(Settings_test.SettingsTest):
                                 "data_type": types,
                                 "synchronizer": {},
                                 "synchronization": {},
+                                "value_ref_enabled": {},
+                                "value_ref_pattern": {},
                                 "shape": shapes
                             }
                         )
@@ -2824,6 +2826,8 @@ class ExtraSettingsTest(Settings_test.SettingsTest):
                                 "data_type": types,
                                 "synchronizer": {},
                                 "synchronization": {},
+                                "value_ref_enabled": {},
+                                "value_ref_pattern": {},
                                 "shape": shapes
                             }
                         )

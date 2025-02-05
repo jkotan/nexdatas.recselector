@@ -586,6 +586,10 @@ class ProfileManager(object):
             if "synchronizer" in props.keys() else {}
         synchronization = props["synchronization"] \
             if "synchronization" in props.keys() else {}
+        valuerefenabled = props["value_ref_enabled"] \
+            if "value_ref_enabled" in props.keys() else {}
+        valuerefpattern = props["value_ref_pattern"] \
+            if "value_ref_pattern" in props.keys() else {}
         tchannels = set(PoolUtils.getElementNames(
             self.__pools, 'ExpChannelList',
             ['CTExpChannel', 'OneDExpChannel', 'TwoDExpChannel']))
@@ -602,7 +606,11 @@ class ProfileManager(object):
                 fullnames, sources,
                 synchronizer[al] if al in synchronizer.keys() else None,
                 int(synchronization[al]) if al in synchronization.keys()
-                else None
+                else None,
+                valuerefenabled[al]
+                if al in valuerefenabled.keys() else None,
+                valuerefpattern[al]
+                if al in valuerefpattern.keys() else None,
             )
             if self.masterTimerFirst and al == timer:
                 index = curindex
@@ -643,6 +651,8 @@ class ProfileManager(object):
         # synchronization = props["synchronization"] \
         #     if "synchronization" in props.keys() else {}
         synchronization = {}
+        valuerefenabled = {}
+        valuerefpattern = {}
         self.__clearChannels(dsg, hel, compdatasources)
 
         # fill in dsg, timers hel
@@ -650,7 +660,8 @@ class ProfileManager(object):
            (not self.masterTimer or "timer" in conf.keys()):
             avtimers = PoolUtils.getTimers(self.__pools, self.timerFilters)
             tangods = self.__readChannels(
-                conf, timers, dsg, hel, synchronizer, synchronization, idch)
+                conf, timers, dsg, hel, synchronizer, synchronization, idch,
+                valuerefenabled, valuerefpattern)
             self.__readTangoChannels(
                 conf, tangods, dsg, hel, synchronizer, synchronization)
             otimers = self.__reorderTimers(conf, timers, dsg, hel, avtimers)
@@ -658,6 +669,8 @@ class ProfileManager(object):
 
         props["synchronizer"] = synchronizer
         props["synchronization"] = synchronization
+        props["value_ref_enabled"] = valuerefenabled
+        props["value_ref_pattern"] = valuerefpattern
 
         changed = False
         jdsg = json.dumps(dsg)
@@ -717,7 +730,8 @@ class ProfileManager(object):
                 hel.remove(ch)
 
     def __readChannels(self, conf, timers, dsg, hel, synchronizer,
-                       synchronization, idch=None):
+                       synchronization, idch=None, valuerefenabled=None,
+                       valuerefpattern=None):
         """ reads channels from mntgrp configutation
 
         :param conf: mntgrp configuration
@@ -735,6 +749,10 @@ class ProfileManager(object):
         :type synchronization: :obj:`dict` <:obj:`str`, :obj:`int`>
         :param idch: index channels
         :type idch: :obj:`dict` <:obj:`int`, :obj:`str`>
+        :param valuerefenabled: channel value ref enabled
+        :type valuerefenabled: :obj:`dict` <:obj:`int`, :obj:`bool`>
+        :param valuerefpattern: channel value ref pattern
+        :type valuerefpattern: :obj:`dict` <:obj:`int`, :obj:`str`>
         :returns: tango datasources list with elements (name, label, source)
         :rtype: :obj:`list` < [:obj:`str` , :obj:`str` , :obj:`str` ] >
         """
@@ -764,6 +782,21 @@ class ProfileManager(object):
                             hel.remove(ch['name'])
                         if idch is not None and 'index' in ch:
                             idch[int(ch["index"])] = ch['name']
+                        if valuerefenabled is not None and \
+                                'value_ref_enabled' in ch and \
+                                ch["value_ref_enabled"] is not None:
+                            # print("GET R", ch['name'],
+                            #       ch["value_ref_enabled"],
+                            #       bool(ch["value_ref_enabled"]))
+                            valuerefenabled[ch['name']] = \
+                                bool(ch["value_ref_enabled"])
+                        if valuerefpattern is not None and \
+                                'value_ref_pattern' in ch and \
+                                ch["value_ref_pattern"] is not None:
+                            # print("GET R", ch['name'],
+                            #  ch["value_ref_pattern"])
+                            valuerefpattern[ch['name']] = \
+                                ch["value_ref_pattern"]
                         if 'synchronizer' in ctrl \
                            and ctrl['synchronizer'].lower() != 'software':
                             synchronizer[ch['name']] = ctrl['synchronizer']
@@ -1285,7 +1318,9 @@ class ProfileManager(object):
 
     def __addDevice(self, device, dontdisplay, cnf,
                     timer, index, fullnames=None, sources=None,
-                    synchronizer=None, synchronization=None):
+                    synchronizer=None, synchronization=None,
+                    valuerefenabled=None,
+                    valuerefpattern=None):
         """ adds device into configuration dictionary
 
         :param device: device alias
@@ -1306,6 +1341,10 @@ class ProfileManager(object):
         :type synchronizer: :obj:`str`
         :param synchronization: trigger:0 or gate:1
         :type synchronization: :obj:`int`
+        :param valuerefenabled: value ref enabled
+        :type valuerefenabled: :obj:`bool`
+        :param valuerefpattern: value ref pattern
+        :type valuerefpattern: :obj:`str`
         :returns: next device index
         :rtype: :obj:`int`
         """
@@ -1325,7 +1364,9 @@ class ProfileManager(object):
             source = sources[device] \
                 if sources and device in sources.keys() else ""
             index = self.__addChannel(cnf, ctrl, device, fullname,
-                                      dontdisplay, index, source)
+                                      dontdisplay, index, source,
+                                      valuerefenabled,
+                                      valuerefpattern)
         else:
             describer = Describer(self.__configServer)
             sds = describer.dataSources([device])
@@ -1413,7 +1454,7 @@ class ProfileManager(object):
 
     @classmethod
     def __addChannel(cls, cnf, ctrl, device, fullname, dontdisplay, index,
-                     source):
+                     source, valuerefenabled=None, valuerefpattern=None):
         """ adds channel into mngrp configuration dictionary
 
         :param cnf: mntgrp configuration dictionary
@@ -1430,6 +1471,10 @@ class ProfileManager(object):
         :type index: :obj:`int`
         :param source: channel source
         :type source: :obj:`str`
+        :param valuerefenabled: value ref enabled
+        :type valuerefenabled: :obj:`bool`
+        :param valuerefenabled: value rrf pattern
+        :type valuerefpattern: :obj:`str`
         :returns: next index
         :rtype: :obj:`int`
         """
@@ -1475,6 +1520,12 @@ class ProfileManager(object):
                 dct['plot_axes'] = ['<mov>']
                 dct['plot_type'] = 1
 
+            if valuerefenabled is not None:
+                dct['value_ref_enabled'] = valuerefenabled
+                # print("SET R", Utils.tostr(device), valuerefenabled)
+            if valuerefpattern is not None:
+                dct['value_ref_pattern'] = valuerefpattern
+                # print("SET R", Utils.tostr(device), valuerefpattern)
             dct['source'] = Utils.tostr(dsource)
             ctrlChannels[fullname] = dct
 
