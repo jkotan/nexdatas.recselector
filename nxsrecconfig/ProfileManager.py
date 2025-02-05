@@ -1509,7 +1509,7 @@ class ProfileManager(object):
             if device in dontdisplay:
                 dct['plot_axes'] = []
                 dct['plot_type'] = 0
-                dct['ndim'] = 0
+                dct['ndim'] = len(dct['shape'] or [])
             elif dct['shape'] and len(dct['shape']) == 1:
                 dct['plot_axes'] = ['<idx>']
                 dct['plot_type'] = 1
@@ -1589,7 +1589,7 @@ class ProfileManager(object):
             if device in dontdisplay:
                 dct['plot_axes'] = []
                 dct['plot_type'] = 0
-                dct['ndim'] = 0
+                dct['ndim'] = len(dct['shape'] or [])
             elif dct['shape'] and len(dct['shape']) == 1:
                 dct['plot_axes'] = ['<idx>']
                 dct['plot_type'] = 1

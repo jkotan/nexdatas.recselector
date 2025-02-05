@@ -3617,7 +3617,7 @@ class ProfileManagerTest(unittest.TestCase):
                 for i, ds in enumerate(chds):
                     cnt = self.smychs[str(ds)]
                     try:
-                        chn = {'ndim': 0,
+                        chn = {'ndim': len(cnt['shape']),
                                'index': i,
                                'name': str(ds),
                                'data_type': cnt['data_type'],
@@ -3887,7 +3887,7 @@ class ProfileManagerTest(unittest.TestCase):
                 for i, ds in enumerate(chds):
                     cnt = self.smychs[str(ds)]
                     try:
-                        chn = {'ndim': 0,
+                        chn = {'ndim': len(cnt['shape']),
                                'index': i,
                                'name': str(ds),
                                'data_type': cnt['data_type'],
@@ -4192,7 +4192,7 @@ class ProfileManagerTest(unittest.TestCase):
                                     if i < idmax:
                                         idmax = i
                                         ttdv = tdv
-                                    chn = {'ndim': 0,
+                                    chn = {'ndim': len(cnt['shape']),
                                            'index': i,
                                            'name': str(ds),
                                            'data_type': cnt['data_type'],
@@ -4530,7 +4530,7 @@ class ProfileManagerTest(unittest.TestCase):
                                     if i < idmax:
                                         idmax = i
                                         ttdv = tdv
-                                    chn = {'ndim': 0,
+                                    chn = {'ndim': len(cnt['shape']),
                                            'index': i,
                                            'name': str(ds),
                                            'data_type': cnt['data_type'],
@@ -4892,7 +4892,7 @@ class ProfileManagerTest(unittest.TestCase):
                                         if i < idmax:
                                             idmax = i
                                             ttdv = tdv
-                                        chn = {'ndim': 0,
+                                        chn = {'ndim': len(cnt['shape']),
                                                'index': i,
                                                'name': str(ds),
                                                'data_type': cnt['data_type'],
@@ -4934,7 +4934,7 @@ class ProfileManagerTest(unittest.TestCase):
                             i = chds.index(str(ds))
 #                            print "INDEX", i, ds
                             try:
-                                chn = {'ndim': 0,
+                                chn = {'ndim': len(cnt['shape']),
                                        'index': i,
                                        'name': str(ds),
                                        'data_type': cnt['data_type'],
@@ -5297,7 +5297,7 @@ class ProfileManagerTest(unittest.TestCase):
                                         if i < idmax:
                                             idmax = i
                                             ttdv = tdv
-                                        chn = {'ndim': 0,
+                                        chn = {'ndim': len(cnt['shape']),
                                                'index': i,
                                                'name': str(ds),
                                                'data_type': cnt['data_type'],
@@ -5339,7 +5339,7 @@ class ProfileManagerTest(unittest.TestCase):
                             i = chds.index(str(ds))
 #                            print "INDEX", i, ds
                             try:
-                                chn = {'ndim': 0,
+                                chn = {'ndim': len(cnt['shape']),
                                        'index': i,
                                        'name': str(ds),
                                        'data_type': cnt['data_type'],
@@ -5731,7 +5731,7 @@ class ProfileManagerTest(unittest.TestCase):
                                         if i < idmax:
                                             idmax = i
                                             ttdv = tdv
-                                        chn = {'ndim': 0,
+                                        chn = {'ndim': len(cnt['shape']),
                                                'index': i,
                                                'name': str(ds),
                                                'data_type': cnt['data_type'],
@@ -5785,7 +5785,7 @@ class ProfileManagerTest(unittest.TestCase):
                             i = chds.index(str(ds))
 #                            print "INDEX", i, ds
                             try:
-                                chn = {'ndim': 0,
+                                chn = {'ndim': len(cnt['shape']),
                                        'index': i,
                                        'name': str(ds),
                                        'data_type': cnt['data_type'],
@@ -6248,7 +6248,7 @@ class ProfileManagerTest(unittest.TestCase):
                                         if i < idmax:
                                             idmax = i
                                             ttdv = tdv
-                                        chn = {'ndim': 0,
+                                        chn = {'ndim': len(cnt['shape']),
                                                'index': i,
                                                'name': str(ds),
                                                'data_type': cnt['data_type'],
@@ -6302,7 +6302,7 @@ class ProfileManagerTest(unittest.TestCase):
                             i = chds.index(str(ds))
 #                            print "INDEX", i, ds
                             try:
-                                chn = {'ndim': 0,
+                                chn = {'ndim': len(cnt['shape']),
                                        'index': i,
                                        'name': str(ds),
                                        'data_type': cnt['data_type'],
@@ -6813,7 +6813,7 @@ class ProfileManagerTest(unittest.TestCase):
                                                 idmax = i
                                                 ttdv = tdv
                                                 # ttds = ds
-                                            chn = {'ndim': 0,
+                                            chn = {'ndim': len(cnt['shape']),
                                                    'index': i,
                                                    'name': str(ds),
                                                    'data_type':
@@ -6870,7 +6870,7 @@ class ProfileManagerTest(unittest.TestCase):
                                 i = chds.index(str(ds))
         #                            print "INDEX", i, ds
                                 try:
-                                    chn = {'ndim': 0,
+                                    chn = {'ndim': len(cnt['shape']),
                                            'index': i,
                                            'name': str(ds),
                                            'data_type': cnt['data_type'],

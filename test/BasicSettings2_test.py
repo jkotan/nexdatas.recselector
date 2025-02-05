@@ -12824,7 +12824,7 @@ class BasicSettings2Test(Settings2_test.Settings2Test):
                 for i, ds in enumerate(chds):
                     cnt = self.smychs[str(ds)]
                     try:
-                        chn = {'ndim': 0,
+                        chn = {'ndim': len(cnt['shape']),
                                'index': i,
                                'name': str(ds),
                                'data_type': cnt['data_type'],
@@ -13089,7 +13089,7 @@ class BasicSettings2Test(Settings2_test.Settings2Test):
                 for i, ds in enumerate(chds):
                     cnt = self.smychs[str(ds)]
                     try:
-                        chn = {'ndim': 0,
+                        chn = {'ndim': len(cnt['shape']),
                                'index': i,
                                'name': str(ds),
                                'data_type': cnt['data_type'],
@@ -13391,7 +13391,7 @@ class BasicSettings2Test(Settings2_test.Settings2Test):
                                     if i < idmax:
                                         idmax = i
                                         ttdv = tdv
-                                    chn = {'ndim': 0,
+                                    chn = {'ndim': len(cnt['shape']),
                                            'index': i,
                                            'name': str(ds),
                                            'data_type': cnt['data_type'],
@@ -13725,7 +13725,7 @@ class BasicSettings2Test(Settings2_test.Settings2Test):
                                     if i < idmax:
                                         idmax = i
                                         ttdv = tdv
-                                    chn = {'ndim': 0,
+                                    chn = {'ndim': len(cnt['shape']),
                                            'index': i,
                                            'name': str(ds),
                                            'data_type': cnt['data_type'],
@@ -14075,7 +14075,7 @@ class BasicSettings2Test(Settings2_test.Settings2Test):
                                         if i < idmax:
                                             idmax = i
                                             ttdv = tdv
-                                        chn = {'ndim': 0,
+                                        chn = {'ndim': len(cnt['shape']),
                                                'index': i,
                                                'name': str(ds),
                                                'data_type': cnt['data_type'],
@@ -14115,7 +14115,7 @@ class BasicSettings2Test(Settings2_test.Settings2Test):
                             i = chds.index(str(ds))
 #                            print "INDEX", i, ds
                             try:
-                                chn = {'ndim': 0,
+                                chn = {'ndim': len(cnt['shape']),
                                        'index': i,
                                        'name': str(ds),
                                        'data_type': cnt['data_type'],
@@ -14489,7 +14489,7 @@ class BasicSettings2Test(Settings2_test.Settings2Test):
                                         if i < idmax:
                                             idmax = i
                                             ttdv = tdv
-                                        chn = {'ndim': 0,
+                                        chn = {'ndim': len(cnt['shape']),
                                                'index': i,
                                                'name': str(ds),
                                                'data_type': cnt['data_type'],
@@ -14529,7 +14529,7 @@ class BasicSettings2Test(Settings2_test.Settings2Test):
                             i = chds.index(str(ds))
 #                            print "INDEX", i, ds
                             try:
-                                chn = {'ndim': 0,
+                                chn = {'ndim': len(cnt['shape']),
                                        'index': i,
                                        'name': str(ds),
                                        'data_type': cnt['data_type'],
