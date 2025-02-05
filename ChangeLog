@@ -1,4 +1,8 @@
 2024-07-19 Jan Kotanski <jankotan@gmail.com>
+	* add support for value_ref_enabled flag (#131)
+	* tagged as v3.41.0
+
+2024-07-19 Jan Kotanski <jankotan@gmail.com>
 	* allow to start the tango server when MacroServer is down (#131)
 	* tagged as v3.40.1
 
