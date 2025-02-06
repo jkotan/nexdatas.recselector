@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nxsrecconfig.ProfileManager &#8212; NXSRecSelector 3.40.0 documentation</title>
+    <title>nxsrecconfig.ProfileManager &#8212; NXSRecSelector 3.41.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/bootstrap-sphinx.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
@@ -37,7 +37,7 @@
         </button>
         <a class="navbar-brand" href="../../index.html">
           NXSRecSelector</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.40</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.41</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -704,6 +704,10 @@
             <span class="k">if</span> <span class="s2">&quot;synchronizer&quot;</span> <span class="ow">in</span> <span class="n">props</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="p">{}</span>
         <span class="n">synchronization</span> <span class="o">=</span> <span class="n">props</span><span class="p">[</span><span class="s2">&quot;synchronization&quot;</span><span class="p">]</span> \
             <span class="k">if</span> <span class="s2">&quot;synchronization&quot;</span> <span class="ow">in</span> <span class="n">props</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="p">{}</span>
+        <span class="n">valuerefenabled</span> <span class="o">=</span> <span class="n">props</span><span class="p">[</span><span class="s2">&quot;value_ref_enabled&quot;</span><span class="p">]</span> \
+            <span class="k">if</span> <span class="s2">&quot;value_ref_enabled&quot;</span> <span class="ow">in</span> <span class="n">props</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="p">{}</span>
+        <span class="n">valuerefpattern</span> <span class="o">=</span> <span class="n">props</span><span class="p">[</span><span class="s2">&quot;value_ref_pattern&quot;</span><span class="p">]</span> \
+            <span class="k">if</span> <span class="s2">&quot;value_ref_pattern&quot;</span> <span class="ow">in</span> <span class="n">props</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="p">{}</span>
         <span class="n">tchannels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">PoolUtils</span><span class="o">.</span><span class="n">getElementNames</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__pools</span><span class="p">,</span> <span class="s1">&#39;ExpChannelList&#39;</span><span class="p">,</span>
             <span class="p">[</span><span class="s1">&#39;CTExpChannel&#39;</span><span class="p">,</span> <span class="s1">&#39;OneDExpChannel&#39;</span><span class="p">,</span> <span class="s1">&#39;TwoDExpChannel&#39;</span><span class="p">]))</span>
@@ -720,7 +724,11 @@
                 <span class="n">fullnames</span><span class="p">,</span> <span class="n">sources</span><span class="p">,</span>
                 <span class="n">synchronizer</span><span class="p">[</span><span class="n">al</span><span class="p">]</span> <span class="k">if</span> <span class="n">al</span> <span class="ow">in</span> <span class="n">synchronizer</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
                 <span class="nb">int</span><span class="p">(</span><span class="n">synchronization</span><span class="p">[</span><span class="n">al</span><span class="p">])</span> <span class="k">if</span> <span class="n">al</span> <span class="ow">in</span> <span class="n">synchronization</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-                <span class="k">else</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">valuerefenabled</span><span class="p">[</span><span class="n">al</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">al</span> <span class="ow">in</span> <span class="n">valuerefenabled</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">valuerefpattern</span><span class="p">[</span><span class="n">al</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">al</span> <span class="ow">in</span> <span class="n">valuerefpattern</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">masterTimerFirst</span> <span class="ow">and</span> <span class="n">al</span> <span class="o">==</span> <span class="n">timer</span><span class="p">:</span>
                 <span class="n">index</span> <span class="o">=</span> <span class="n">curindex</span>
@@ -761,6 +769,8 @@
         <span class="c1"># synchronization = props[&quot;synchronization&quot;] \</span>
         <span class="c1">#     if &quot;synchronization&quot; in props.keys() else {}</span>
         <span class="n">synchronization</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">valuerefenabled</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">valuerefpattern</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__clearChannels</span><span class="p">(</span><span class="n">dsg</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">compdatasources</span><span class="p">)</span>
 
         <span class="c1"># fill in dsg, timers hel</span>
@@ -768,7 +778,8 @@
            <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">masterTimer</span> <span class="ow">or</span> <span class="s2">&quot;timer&quot;</span> <span class="ow">in</span> <span class="n">conf</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
             <span class="n">avtimers</span> <span class="o">=</span> <span class="n">PoolUtils</span><span class="o">.</span><span class="n">getTimers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__pools</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timerFilters</span><span class="p">)</span>
             <span class="n">tangods</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__readChannels</span><span class="p">(</span>
-                <span class="n">conf</span><span class="p">,</span> <span class="n">timers</span><span class="p">,</span> <span class="n">dsg</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">synchronizer</span><span class="p">,</span> <span class="n">synchronization</span><span class="p">,</span> <span class="n">idch</span><span class="p">)</span>
+                <span class="n">conf</span><span class="p">,</span> <span class="n">timers</span><span class="p">,</span> <span class="n">dsg</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">synchronizer</span><span class="p">,</span> <span class="n">synchronization</span><span class="p">,</span> <span class="n">idch</span><span class="p">,</span>
+                <span class="n">valuerefenabled</span><span class="p">,</span> <span class="n">valuerefpattern</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__readTangoChannels</span><span class="p">(</span>
                 <span class="n">conf</span><span class="p">,</span> <span class="n">tangods</span><span class="p">,</span> <span class="n">dsg</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">synchronizer</span><span class="p">,</span> <span class="n">synchronization</span><span class="p">)</span>
             <span class="n">otimers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__reorderTimers</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">timers</span><span class="p">,</span> <span class="n">dsg</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">avtimers</span><span class="p">)</span>
@@ -776,6 +787,8 @@
 
         <span class="n">props</span><span class="p">[</span><span class="s2">&quot;synchronizer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">synchronizer</span>
         <span class="n">props</span><span class="p">[</span><span class="s2">&quot;synchronization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">synchronization</span>
+        <span class="n">props</span><span class="p">[</span><span class="s2">&quot;value_ref_enabled&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">valuerefenabled</span>
+        <span class="n">props</span><span class="p">[</span><span class="s2">&quot;value_ref_pattern&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">valuerefpattern</span>
 
         <span class="n">changed</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="n">jdsg</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">dsg</span><span class="p">)</span>
@@ -835,7 +848,8 @@
                 <span class="n">hel</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__readChannels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">timers</span><span class="p">,</span> <span class="n">dsg</span><span class="p">,</span> <span class="n">hel</span><span class="p">,</span> <span class="n">synchronizer</span><span class="p">,</span>
-                       <span class="n">synchronization</span><span class="p">,</span> <span class="n">idch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                       <span class="n">synchronization</span><span class="p">,</span> <span class="n">idch</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valuerefenabled</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                       <span class="n">valuerefpattern</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; reads channels from mntgrp configutation</span>
 
 <span class="sd">        :param conf: mntgrp configuration</span>
@@ -853,6 +867,10 @@
 <span class="sd">        :type synchronization: :obj:`dict` &lt;:obj:`str`, :obj:`int`&gt;</span>
 <span class="sd">        :param idch: index channels</span>
 <span class="sd">        :type idch: :obj:`dict` &lt;:obj:`int`, :obj:`str`&gt;</span>
+<span class="sd">        :param valuerefenabled: channel value ref enabled</span>
+<span class="sd">        :type valuerefenabled: :obj:`dict` &lt;:obj:`int`, :obj:`bool`&gt;</span>
+<span class="sd">        :param valuerefpattern: channel value ref pattern</span>
+<span class="sd">        :type valuerefpattern: :obj:`dict` &lt;:obj:`int`, :obj:`str`&gt;</span>
 <span class="sd">        :returns: tango datasources list with elements (name, label, source)</span>
 <span class="sd">        :rtype: :obj:`list` &lt; [:obj:`str` , :obj:`str` , :obj:`str` ] &gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -882,6 +900,21 @@
                             <span class="n">hel</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
                         <span class="k">if</span> <span class="n">idch</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s1">&#39;index&#39;</span> <span class="ow">in</span> <span class="n">ch</span><span class="p">:</span>
                             <span class="n">idch</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">])]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+                        <span class="k">if</span> <span class="n">valuerefenabled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
+                                <span class="s1">&#39;value_ref_enabled&#39;</span> <span class="ow">in</span> <span class="n">ch</span> <span class="ow">and</span> \
+                                <span class="n">ch</span><span class="p">[</span><span class="s2">&quot;value_ref_enabled&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="c1"># print(&quot;GET R&quot;, ch[&#39;name&#39;],</span>
+                            <span class="c1">#       ch[&quot;value_ref_enabled&quot;],</span>
+                            <span class="c1">#       bool(ch[&quot;value_ref_enabled&quot;]))</span>
+                            <span class="n">valuerefenabled</span><span class="p">[</span><span class="n">ch</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> \
+                                <span class="nb">bool</span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="s2">&quot;value_ref_enabled&quot;</span><span class="p">])</span>
+                        <span class="k">if</span> <span class="n">valuerefpattern</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
+                                <span class="s1">&#39;value_ref_pattern&#39;</span> <span class="ow">in</span> <span class="n">ch</span> <span class="ow">and</span> \
+                                <span class="n">ch</span><span class="p">[</span><span class="s2">&quot;value_ref_pattern&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="c1"># print(&quot;GET R&quot;, ch[&#39;name&#39;],</span>
+                            <span class="c1">#  ch[&quot;value_ref_pattern&quot;])</span>
+                            <span class="n">valuerefpattern</span><span class="p">[</span><span class="n">ch</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> \
+                                <span class="n">ch</span><span class="p">[</span><span class="s2">&quot;value_ref_pattern&quot;</span><span class="p">]</span>
                         <span class="k">if</span> <span class="s1">&#39;synchronizer&#39;</span> <span class="ow">in</span> <span class="n">ctrl</span> \
                            <span class="ow">and</span> <span class="n">ctrl</span><span class="p">[</span><span class="s1">&#39;synchronizer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;software&#39;</span><span class="p">:</span>
                             <span class="n">synchronizer</span><span class="p">[</span><span class="n">ch</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ctrl</span><span class="p">[</span><span class="s1">&#39;synchronizer&#39;</span><span class="p">]</span>
@@ -1403,7 +1436,9 @@
 
     <span class="k">def</span> <span class="nf">__addDevice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">dontdisplay</span><span class="p">,</span> <span class="n">cnf</span><span class="p">,</span>
                     <span class="n">timer</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">fullnames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sources</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                    <span class="n">synchronizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">synchronization</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                    <span class="n">synchronizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">synchronization</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">valuerefenabled</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">valuerefpattern</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; adds device into configuration dictionary</span>
 
 <span class="sd">        :param device: device alias</span>
@@ -1424,6 +1459,10 @@
 <span class="sd">        :type synchronizer: :obj:`str`</span>
 <span class="sd">        :param synchronization: trigger:0 or gate:1</span>
 <span class="sd">        :type synchronization: :obj:`int`</span>
+<span class="sd">        :param valuerefenabled: value ref enabled</span>
+<span class="sd">        :type valuerefenabled: :obj:`bool`</span>
+<span class="sd">        :param valuerefpattern: value ref pattern</span>
+<span class="sd">        :type valuerefpattern: :obj:`str`</span>
 <span class="sd">        :returns: next device index</span>
 <span class="sd">        :rtype: :obj:`int`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1443,7 +1482,9 @@
             <span class="n">source</span> <span class="o">=</span> <span class="n">sources</span><span class="p">[</span><span class="n">device</span><span class="p">]</span> \
                 <span class="k">if</span> <span class="n">sources</span> <span class="ow">and</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">sources</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
             <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__addChannel</span><span class="p">(</span><span class="n">cnf</span><span class="p">,</span> <span class="n">ctrl</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">fullname</span><span class="p">,</span>
-                                      <span class="n">dontdisplay</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">source</span><span class="p">)</span>
+                                      <span class="n">dontdisplay</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span>
+                                      <span class="n">valuerefenabled</span><span class="p">,</span>
+                                      <span class="n">valuerefpattern</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">describer</span> <span class="o">=</span> <span class="n">Describer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__configServer</span><span class="p">)</span>
             <span class="n">sds</span> <span class="o">=</span> <span class="n">describer</span><span class="o">.</span><span class="n">dataSources</span><span class="p">([</span><span class="n">device</span><span class="p">])</span>
@@ -1531,7 +1572,7 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">__addChannel</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">cnf</span><span class="p">,</span> <span class="n">ctrl</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">fullname</span><span class="p">,</span> <span class="n">dontdisplay</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span>
-                     <span class="n">source</span><span class="p">):</span>
+                     <span class="n">source</span><span class="p">,</span> <span class="n">valuerefenabled</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">valuerefpattern</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; adds channel into mngrp configuration dictionary</span>
 
 <span class="sd">        :param cnf: mntgrp configuration dictionary</span>
@@ -1548,6 +1589,10 @@
 <span class="sd">        :type index: :obj:`int`</span>
 <span class="sd">        :param source: channel source</span>
 <span class="sd">        :type source: :obj:`str`</span>
+<span class="sd">        :param valuerefenabled: value ref enabled</span>
+<span class="sd">        :type valuerefenabled: :obj:`bool`</span>
+<span class="sd">        :param valuerefenabled: value rrf pattern</span>
+<span class="sd">        :type valuerefpattern: :obj:`str`</span>
 <span class="sd">        :returns: next index</span>
 <span class="sd">        :rtype: :obj:`int`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1574,7 +1619,6 @@
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;instrument&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-            <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;ndim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;nexus_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;normalization&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1583,16 +1627,26 @@
             <span class="k">if</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">dontdisplay</span><span class="p">:</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_axes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;ndim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dct</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="p">[])</span>
             <span class="k">elif</span> <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">dct</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_axes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;idx&gt;&#39;</span><span class="p">]</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;ndim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
             <span class="k">elif</span> <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">dct</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_axes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;idx&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;idx&gt;&#39;</span><span class="p">]</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+                <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;ndim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_axes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;mov&gt;&#39;</span><span class="p">]</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;ndim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
+            <span class="k">if</span> <span class="n">valuerefenabled</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;value_ref_enabled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">valuerefenabled</span>
+                <span class="c1"># print(&quot;SET R&quot;, Utils.tostr(device), valuerefenabled)</span>
+            <span class="k">if</span> <span class="n">valuerefpattern</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;value_ref_pattern&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">valuerefpattern</span>
+                <span class="c1"># print(&quot;SET R&quot;, Utils.tostr(device), valuerefpattern)</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">dsource</span><span class="p">)</span>
             <span class="n">ctrlChannels</span><span class="p">[</span><span class="n">fullname</span><span class="p">]</span> <span class="o">=</span> <span class="n">dct</span>
 
@@ -1645,7 +1699,6 @@
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;instrument&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-            <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;ndim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;nexus_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;normalization&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1654,15 +1707,19 @@
             <span class="k">if</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">dontdisplay</span><span class="p">:</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_axes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;ndim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dct</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="p">[])</span>
             <span class="k">elif</span> <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">dct</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_axes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;idx&gt;&#39;</span><span class="p">]</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;ndim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
             <span class="k">elif</span> <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">dct</span><span class="p">[</span><span class="s1">&#39;shape&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_axes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;idx&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;idx&gt;&#39;</span><span class="p">]</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+                <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;ndim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_axes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&lt;mov&gt;&#39;</span><span class="p">]</span>
                 <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;plot_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;ndim&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
             <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="n">tostr</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
             <span class="n">ctrlChannels</span><span class="p">[</span><span class="n">fullname</span><span class="p">]</span> <span class="o">=</span> <span class="n">dct</span>

@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Welcome to nxsrecconfig’s documentation! &#8212; NXSRecSelector 3.40.1 documentation</title>
+    <title>Welcome to nxsrecconfig&#39;s documentation! &#8212; NXSRecSelector 3.41.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -39,7 +39,7 @@
         </button>
         <a class="navbar-brand" href="#">
           NXSRecSelector</a>
-        <span class="navbar-text navbar-version pull-left"><b>3.40</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>3.41</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -86,7 +86,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Welcome to nxsrecconfig’s documentation!</a><ul>
+<li><a class="reference internal" href="#">Welcome to nxsrecconfig's documentation!</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
 <li><a class="reference internal" href="#from-sources">From sources</a></li>
 <li><a class="reference internal" href="#debian-packages">Debian packages</a></li>
@@ -140,7 +140,7 @@
     <div class="body col-md-12 content" role="main">
       
   <section id="welcome-to-nxsrecconfig-s-documentation">
-<h1>Welcome to nxsrecconfig’s documentation!<a class="headerlink" href="#welcome-to-nxsrecconfig-s-documentation" title="Permalink to this heading">¶</a></h1>
+<h1>Welcome to nxsrecconfig's documentation!<a class="headerlink" href="#welcome-to-nxsrecconfig-s-documentation" title="Permalink to this heading">¶</a></h1>
 <p><a class="reference external" href="https://github.com/nexdatas/nxsrecselector/actions"><img alt="" src="https://github.com/nexdatas/nxsrecselector/actions/workflows/tests.yml/badge.svg" /></a>
 <a class="reference external" href="https://nexdatas.github.io/nxsrecselector/index.html"><img alt="" src="https://img.shields.io/badge/Documentation-webpages-ADD8E6.svg" /></a>
 <a class="reference external" href="https://pypi.python.org/pypi/nxsrecselector"><img alt="" src="https://img.shields.io/pypi/v/nxsrecselector.svg" /></a>
@@ -167,13 +167,13 @@ Introduction</p>
 <div class="line"><a class="reference external" href="https://github.com/nexdatas/nxsrecselector">https://github.com/nexdatas/nxsrecselector</a></div>
 </div>
 <p>Extract the sources and run</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python<span class="w"> </span>setup.py<span class="w"> </span>install
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python3<span class="w"> </span>setup.py<span class="w"> </span>install
 </pre></div>
 </div>
 </section>
 <section id="debian-packages">
 <h3>Debian packages<a class="headerlink" href="#debian-packages" title="Permalink to this heading">¶</a></h3>
-<p>Debian bookworm, bullseye and buster or ubuntu lunar, jammy nad focal packages can be found in the HDRI repository.</p>
+<p>Debian bookworm, bullseye and buster or ubuntu oracular, noble, jammy packages can be found in the HDRI repository.</p>
 <p>To install the debian packages, add the PGP repository key</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>su
 <span class="gp">$ </span>wget<span class="w"> </span>-q<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span>http://repos.pni-hdri.de/debian_repo.pub.gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
@@ -186,7 +186,7 @@ Introduction</p>
 </div>
 <p>Finally, install module</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>update
-<span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>python-nxsrecselector
+<span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-nxsrecselector
 </pre></div>
 </div>
 <p>and the NXSRecSelector tango server</p>
@@ -195,11 +195,11 @@ Introduction</p>
 </pre></div>
 </div>
 <p>To instal other NexDaTaS packages</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>python-nxswriter<span class="w"> </span>nxsconfigtool<span class="w"> </span>nxstools<span class="w"> </span>python-nxsconfigserver<span class="w"> </span>nxsconfigserver-db
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-nxswriter<span class="w"> </span>nxsconfigtool<span class="w"> </span>nxstools<span class="w"> </span>python3-nxsconfigserver<span class="w"> </span>nxsconfigserver-db
 </pre></div>
 </div>
 <p>and</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>nxselector<span class="w"> </span>python-sardana-nxsrecorder
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt-get<span class="w"> </span>install<span class="w"> </span>nxselector<span class="w"> </span>python3-sardana-nxsrecorder
 </pre></div>
 </div>
 <p>for Component Selector and Sardana related packages.</p>
