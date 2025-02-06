@@ -466,7 +466,7 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                         if i < idmax:
                                             idmax = i
                                             ttdv = tdv
-                                        chn = {'ndim': 0,
+                                        chn = {'ndim': len(cnt['shape']),
                                                'index': i,
                                                'name': str(ds),
                                                'data_type': cnt['data_type'],
@@ -524,7 +524,7 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                     i = i + 1
 #                            print "INDEX", i, ds
                             try:
-                                chn = {'ndim': 0,
+                                chn = {'ndim': len(cnt['shape']),
                                        'index': i,
                                        'name': str(ds),
                                        'data_type': cnt['data_type'],
@@ -986,7 +986,7 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                         if i < idmax:
                                             idmax = i
                                             ttdv = tdv
-                                        chn = {'ndim': 0,
+                                        chn = {'ndim': len(cnt['shape']),
                                                'index': i,
                                                'name': str(ds),
                                                'data_type': cnt['data_type'],
@@ -1043,7 +1043,7 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                     i = i + 1
 #                            print "INDEX", i, ds
                             try:
-                                chn = {'ndim': 0,
+                                chn = {'ndim': len(cnt['shape']),
                                        'index': i,
                                        'name': str(ds),
                                        'data_type': cnt['data_type'],
@@ -1580,7 +1580,7 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                             if i < idmax:
                                                 idmax = i
                                                 ttdv = tdv
-                                            chn = {'ndim': 0,
+                                            chn = {'ndim': len(cnt['shape']),
                                                    'index': i,
                                                    'name': str(ds),
                                                    'data_type':
@@ -1638,7 +1638,7 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                     if i < cri:
                                         i = i + 1
                                 try:
-                                    chn = {'ndim': 0,
+                                    chn = {'ndim': len(cnt['shape']),
                                            'index': i,
                                            'name': str(ds),
                                            'data_type': cnt['data_type'],
@@ -3053,7 +3053,7 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                             if i < idmax:
                                                 idmax = i
                                                 ttdv = tdv
-                                            chn = {'ndim': 0,
+                                            chn = {'ndim': len(cnt['shape']),
                                                    'index': i,
                                                    'name': str(ds),
                                                    'data_type':
@@ -3111,7 +3111,7 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                     if i < cri:
                                         i = i + 1
                                 try:
-                                    chn = {'ndim': 0,
+                                    chn = {'ndim': len(cnt['shape']),
                                            'index': i,
                                            'name': str(ds),
                                            'data_type': cnt['data_type'],

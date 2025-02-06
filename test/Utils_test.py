@@ -180,7 +180,7 @@ class UtilsTest(unittest.TestCase):
 
         self.cnt = '{"units": {"0":{"channels":{},' \
             + ' "trigger_type":0, "id":0, "timer":"%s", "monitor":"%s"}}}'
-        self.chnl = '{"ndim":0, "index":%s, "name":"%s", "data_type":"%s", ' \
+        self.chnl = '{"ndim":%s, "index":%s, "name":"%s", "data_type":"%s", ' \
             '"plot_type":%s, "enabled": true, "label": "%s", ' \
             '"instrument":null, "shape": [%s], "_controller_name": "%s", ' \
             '"conditioning": "", "full_name": "%s", "_unit_id": "0", ' \

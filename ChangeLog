@@ -1,5 +1,6 @@
-2024-07-19 Jan Kotanski <jankotan@gmail.com>
-	* add support for value_ref_enabled flag (#131)
+2025-02-06 Jan Kotanski <jankotan@gmail.com>
+	* add support for value_ref_enabled flag and value_ref_pattern (#134)
+	* fix ndim value (#136)
 	* tagged as v3.41.0
 
 2024-07-19 Jan Kotanski <jankotan@gmail.com>

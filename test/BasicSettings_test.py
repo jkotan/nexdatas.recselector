@@ -12822,7 +12822,7 @@ class BasicSettingsTest(Settings_test.SettingsTest):
                         i = 0
                     cnt = self.smychs[str(ds)]
                     try:
-                        chn = {'ndim': 0,
+                        chn = {'ndim': len(cnt['shape']),
                                'index': i,
                                'name': str(ds),
                                'data_type': cnt['data_type'],
@@ -13054,7 +13054,7 @@ class BasicSettingsTest(Settings_test.SettingsTest):
                 for i, ds in enumerate(chds):
                     cnt = self.smychs[str(ds)]
                     try:
-                        chn = {'ndim': 0,
+                        chn = {'ndim': len(cnt['shape']),
                                'index': i,
                                'name': str(ds),
                                'data_type': cnt['data_type'],
@@ -13323,7 +13323,7 @@ class BasicSettingsTest(Settings_test.SettingsTest):
                 for i, ds in enumerate(chds):
                     cnt = self.smychs[str(ds)]
                     try:
-                        chn = {'ndim': 0,
+                        chn = {'ndim': len(cnt['shape']),
                                'index': i,
                                'name': str(ds),
                                'data_type': cnt['data_type'],
@@ -13629,7 +13629,7 @@ class BasicSettingsTest(Settings_test.SettingsTest):
                                     if i < idmax:
                                         idmax = i
                                         ttdv = tdv
-                                    chn = {'ndim': 0,
+                                    chn = {'ndim': len(cnt['shape']),
                                            'index': i,
                                            'name': str(ds),
                                            'data_type': cnt['data_type'],
@@ -13965,7 +13965,7 @@ class BasicSettingsTest(Settings_test.SettingsTest):
                                     if i < idmax:
                                         idmax = i
                                         ttdv = tdv
-                                    chn = {'ndim': 0,
+                                    chn = {'ndim': len(cnt['shape']),
                                            'index': i,
                                            'name': str(ds),
                                            'data_type': cnt['data_type'],
@@ -14318,7 +14318,7 @@ class BasicSettingsTest(Settings_test.SettingsTest):
                                         if i < idmax:
                                             idmax = i
                                             ttdv = tdv
-                                        chn = {'ndim': 0,
+                                        chn = {'ndim': len(cnt['shape']),
                                                'index': i,
                                                'name': str(ds),
                                                'data_type': cnt['data_type'],
@@ -14360,7 +14360,7 @@ class BasicSettingsTest(Settings_test.SettingsTest):
                             i = chds.index(str(ds))
 #                            print "INDEX", i, ds
                             try:
-                                chn = {'ndim': 0,
+                                chn = {'ndim': len(cnt['shape']),
                                        'index': i,
                                        'name': str(ds),
                                        'data_type': cnt['data_type'],
@@ -14736,7 +14736,7 @@ class BasicSettingsTest(Settings_test.SettingsTest):
                                         if i < idmax:
                                             idmax = i
                                             ttdv = tdv
-                                        chn = {'ndim': 0,
+                                        chn = {'ndim': len(cnt['shape']),
                                                'index': i,
                                                'name': str(ds),
                                                'data_type': cnt['data_type'],
@@ -14778,7 +14778,7 @@ class BasicSettingsTest(Settings_test.SettingsTest):
                             i = chds.index(str(ds))
 #                            print "INDEX", i, ds
                             try:
-                                chn = {'ndim': 0,
+                                chn = {'ndim': len(cnt['shape']),
                                        'index': i,
                                        'name': str(ds),
                                        'data_type': cnt['data_type'],
@@ -14820,7 +14820,6 @@ class BasicSettingsTest(Settings_test.SettingsTest):
                            "description": "Measurement Group",
                            "timer": "%s" % dv,
                            "label": "mg2"}
-#                    print "SMG", smg
                     self.myAssertDict(smg, pcnf)
                     self.myAssertDict(pcnf, cnf)
                     rs.mntGrp = "nxsmntgrp"

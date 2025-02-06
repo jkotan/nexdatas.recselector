@@ -1501,7 +1501,6 @@ class ProfileManager(object):
             dct['instrument'] = None
             dct['label'] = Utils.tostr(device)
             dct['name'] = Utils.tostr(device)
-            dct['ndim'] = 0
             dct['nexus_path'] = u''
             dct['normalization'] = 0
             dct['output'] = True
@@ -1510,15 +1509,19 @@ class ProfileManager(object):
             if device in dontdisplay:
                 dct['plot_axes'] = []
                 dct['plot_type'] = 0
+                dct['ndim'] = len(dct['shape'] or [])
             elif dct['shape'] and len(dct['shape']) == 1:
                 dct['plot_axes'] = ['<idx>']
                 dct['plot_type'] = 1
+                dct['ndim'] = 1
             elif dct['shape'] and len(dct['shape']) == 2:
                 dct['plot_axes'] = ['<idx>', '<idx>']
                 dct['plot_type'] = 2
+                dct['ndim'] = 2
             else:
                 dct['plot_axes'] = ['<mov>']
                 dct['plot_type'] = 1
+                dct['ndim'] = 0
 
             if valuerefenabled is not None:
                 dct['value_ref_enabled'] = valuerefenabled
@@ -1578,7 +1581,6 @@ class ProfileManager(object):
             dct['instrument'] = None
             dct['label'] = Utils.tostr(label)
             dct['name'] = Utils.tostr(device)
-            dct['ndim'] = 0
             dct['nexus_path'] = u''
             dct['normalization'] = 0
             dct['output'] = True
@@ -1587,15 +1589,19 @@ class ProfileManager(object):
             if device in dontdisplay:
                 dct['plot_axes'] = []
                 dct['plot_type'] = 0
+                dct['ndim'] = len(dct['shape'] or [])
             elif dct['shape'] and len(dct['shape']) == 1:
                 dct['plot_axes'] = ['<idx>']
                 dct['plot_type'] = 1
+                dct['ndim'] = 1
             elif dct['shape'] and len(dct['shape']) == 2:
                 dct['plot_axes'] = ['<idx>', '<idx>']
                 dct['plot_type'] = 2
+                dct['ndim'] = 2
             else:
                 dct['plot_axes'] = ['<mov>']
                 dct['plot_type'] = 1
+                dct['ndim'] = 0
 
             dct['source'] = Utils.tostr(source)
             ctrlChannels[fullname] = dct
