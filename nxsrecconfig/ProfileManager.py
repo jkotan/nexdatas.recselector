@@ -594,8 +594,8 @@ class ProfileManager(object):
             if "conditioning" in props.keys() else {}
         instrument = props["instrument"] \
             if "instrument" in props.keys() else {}
-        nexus_path = props["nexus_path"] \
-            if "nexus_path" in props.keys() else {}
+        # nexus_path = props["nexus_path"] \
+        #     if "nexus_path" in props.keys() else {}
         normalization = props["normalization"] \
             if "normalization" in props.keys() else {}
         output = props["output"] \
@@ -625,8 +625,8 @@ class ProfileManager(object):
                 if al in conditioning.keys() else u'',
                 instrument[al]
                 if al in instrument.keys() else None,
-                nexus_path[al]
-                if al in nexus_path.keys() else u'',
+                # nexus_path[al]
+                # if al in nexus_path.keys() else u'',
                 normalization[al]
                 if al in normalization.keys() else 0,
                 output[al]
@@ -675,7 +675,7 @@ class ProfileManager(object):
         valuerefpattern = {}
         conditioning = {}
         instrument = {}
-        nexus_path = {}
+        # nexus_path = {}
         normalization = {}
         output = {}
         self.__clearChannels(dsg, hel, compdatasources)
@@ -687,7 +687,9 @@ class ProfileManager(object):
             tangods = self.__readChannels(
                 conf, timers, dsg, hel, synchronizer, synchronization, idch,
                 valuerefenabled, valuerefpattern, conditioning, instrument,
-                nexus_path, normalization, output)
+                normalization, output
+                # , nexus_path
+            )
             self.__readTangoChannels(
                 conf, tangods, dsg, hel, synchronizer, synchronization)
             otimers = self.__reorderTimers(conf, timers, dsg, hel, avtimers)
@@ -699,7 +701,7 @@ class ProfileManager(object):
         props["value_ref_pattern"] = valuerefpattern
         props["conditioning"] = conditioning
         props["instrument"] = instrument
-        props["nexus_path"] = nexus_path
+        # props["nexus_path"] = nexus_path
         props["normalization"] = normalization
         props["output"] = output
 
@@ -762,9 +764,11 @@ class ProfileManager(object):
 
     def __readChannels(self, conf, timers, dsg, hel, synchronizer,
                        synchronization, idch=None, valuerefenabled=None,
-                       valuerefpattern=None, conditioning=u'',
-                       instrument=None, nexus_path=u'',
-                       normalization=0, output=True):
+                       valuerefpattern=None, conditioning=None,
+                       instrument=None,
+                       normalization=None, output=True
+                       # , nexus_path=u''
+                       ):
         """ reads channels from mntgrp configutation
 
         :param conf: mntgrp configuration
@@ -790,8 +794,6 @@ class ProfileManager(object):
         :type conditioning: :obj:`dict` <:obj:`int`, :obj:`str`>
         :param instrument: channel instrument
         :type instrument: :obj:`dict` <:obj:`int`, :obj:`str`>
-        :param nexus_path: channel nexus_path
-        :type nexus_path: :obj:`dict` <:obj:`int`, :obj:`str`>
         :param normalization: channel normalization
         :type normalization: :obj:`dict` <:obj:`int`, :obj:`str`>
         :param output: channel output
@@ -842,7 +844,8 @@ class ProfileManager(object):
                                 ch["value_ref_pattern"]
                         if conditioning is not None and \
                                 'conditioning' in ch and \
-                                ch["conditioning"] is not None:
+                                ch["conditioning"] is not None and \
+                                ch["conditioning"] != u"":
                             conditioning[ch['name']] = \
                                 ch["conditioning"]
                         if instrument is not None and \
@@ -850,19 +853,21 @@ class ProfileManager(object):
                                 ch["instrument"] is not None:
                             instrument[ch['name']] = \
                                 ch["instrument"]
-                        if nexus_path is not None and \
-                                'nexus_path' in ch and \
-                                ch["nexus_path"] is not None:
-                            nexus_path[ch['name']] = \
-                                ch["nexus_path"]
+                        # if nexus_path is not None and \
+                        #         'nexus_path' in ch and \
+                        #         ch["nexus_path"] is not None:
+                        #     nexus_path[ch['name']] = \
+                        #         ch["nexus_path"]
                         if normalization is not None and \
                                 'normalization' in ch and \
-                                ch["normalization"] is not None:
+                                ch["normalization"] is not None \
+                                and ch["normalization"] != 0:
                             normalization[ch['name']] = \
                                 ch["normalization"]
                         if output is not None and \
                                 'output' in ch and \
-                                ch["output"] is not None:
+                                ch["output"] is not None and \
+                                ch["output"] is not True:
                             output[ch['name']] = \
                                 ch["output"]
                         if 'synchronizer' in ctrl \
@@ -1390,8 +1395,10 @@ class ProfileManager(object):
                     valuerefenabled=None,
                     valuerefpattern=None,
                     conditioning=u'',
-                    instrument=None, nexus_path=u'',
-                    normalization=0, output=True):
+                    instrument=None,
+                    normalization=0, output=True
+                    # , nexus_path=u''
+                    ):
         """ adds device into configuration dictionary
 
         :param device: device alias
@@ -1420,8 +1427,6 @@ class ProfileManager(object):
         :type conditioning: :obj:`str`
         :param instrument: instrument
         :type instrument: :obj:`str`
-        :param nexus_path: nexus_path
-        :type nexus_path: :obj:`str`
         :param normalization: normalization
         :type normalization: :obj:`str`
         :param output: output
@@ -1449,8 +1454,10 @@ class ProfileManager(object):
                                       valuerefenabled,
                                       valuerefpattern,
                                       conditioning,
-                                      instrument, nexus_path,
-                                      normalization, output)
+                                      instrument,
+                                      normalization, output
+                                      # , nexus_path
+                                      )
         else:
             describer = Describer(self.__configServer)
             sds = describer.dataSources([device])
@@ -1540,8 +1547,10 @@ class ProfileManager(object):
     def __addChannel(cls, cnf, ctrl, device, fullname, dontdisplay, index,
                      source, valuerefenabled=None, valuerefpattern=None,
                      conditioning=u'',
-                     instrument=None, nexus_path=u'',
-                     normalization=0, output=True):
+                     instrument=None,
+                     normalization=0, output=True
+                     # , nexus_path=u''
+                     ):
         """ adds channel into mngrp configuration dictionary
 
         :param cnf: mntgrp configuration dictionary
@@ -1566,8 +1575,6 @@ class ProfileManager(object):
         :type conditioning: :obj:`str`
         :param instrument: instrument
         :type instrument: :obj:`str`
-        :param nexus_path: nexus_path
-        :type nexus_path: :obj:`str`
         :param normalization: normalization
         :type normalization: :obj:`str`
         :param output: output
@@ -1598,7 +1605,7 @@ class ProfileManager(object):
             dct['instrument'] = instrument
             dct['label'] = Utils.tostr(device)
             dct['name'] = Utils.tostr(device)
-            dct['nexus_path'] = nexus_path
+            dct['nexus_path'] = u''
             dct['normalization'] = normalization
             dct['output'] = output
             dct['shape'] = shp
