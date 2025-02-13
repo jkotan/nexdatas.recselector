@@ -2832,6 +2832,10 @@ class ExtraSettingsTest(Settings_test.SettingsTest):
                                 "synchronization": {},
                                 "value_ref_enabled": {},
                                 "value_ref_pattern": {},
+                                "normalization": {},
+                                "conditioning": {},
+                                "output": {},
+                                "instrument": {},
                                 "shape": shapes
                             }
                         )

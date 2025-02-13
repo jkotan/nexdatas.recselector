@@ -2888,6 +2888,10 @@ class ExtraSettings3Test(Settings3_test.Settings3Test):
                                 "value_ref_pattern": {},
                                 "synchronizer": {},
                                 "synchronization": {},
+                                "normalization": {},
+                                "conditioning": {},
+                                "output": {},
+                                "instrument": {},
                                 "shape": shapes
                             }
                         )
