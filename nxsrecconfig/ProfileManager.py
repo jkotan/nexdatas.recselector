@@ -766,7 +766,7 @@ class ProfileManager(object):
                        synchronization, idch=None, valuerefenabled=None,
                        valuerefpattern=None, conditioning=None,
                        instrument=None,
-                       normalization=None, output=True
+                       normalization=None, output=None
                        # , nexus_path=u''
                        ):
         """ reads channels from mntgrp configutation
