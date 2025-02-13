@@ -1391,6 +1391,10 @@ class ExtraSettings2Test(Settings2_test.Settings2Test):
                                 "synchronization": {},
                                 "value_ref_enabled": {},
                                 "value_ref_pattern": {},
+                                "normalization": {},
+                                "conditioning": {},
+                                "output": {},
+                                "instrument": {},
                                 "shape": shapes
                             }
                         )
@@ -2802,6 +2806,10 @@ class ExtraSettings2Test(Settings2_test.Settings2Test):
                                 "synchronization": {},
                                 "value_ref_enabled": {},
                                 "value_ref_pattern": {},
+                                "normalization": {},
+                                "conditioning": {},
+                                "output": {},
+                                "instrument": {},
                                 "shape": shapes
                             }
                         )

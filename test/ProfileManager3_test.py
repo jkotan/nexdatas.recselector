@@ -6509,6 +6509,10 @@ class ProfileManager3Test(unittest.TestCase):
                                 "synchronization": {},
                                 "value_ref_enabled": {},
                                 "value_ref_pattern": {},
+                                "normalization": {},
+                                "conditioning": {},
+                                "output": {},
+                                "instrument": {},
                                 "shape": shapes
                             }
                         )
