@@ -1,5 +1,5 @@
 2025-14-06 Jan Kotanski <jankotan@gmail.com>
-	* persist conditioning, instrument, nexus_path, normalization and output (#139)
+	* persist conditioning, instrument, normalization and output (#139)
 	* tagged as v3.42.0
 
 2025-02-06 Jan Kotanski <jankotan@gmail.com>
